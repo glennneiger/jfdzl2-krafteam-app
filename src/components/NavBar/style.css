@@ -2,3 +2,7 @@
     background-color: #212529;
     color: #fed136
 }
+
+ListItem {
+    font-style: unset
+}

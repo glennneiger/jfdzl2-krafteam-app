@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import './style.css'
 import { ListItem } from '@material-ui/core';
@@ -39,28 +40,28 @@ class NavBar extends Component {
         <Drawer open={this.state.open} onClose={this.toggleDrawer}>
           <List>
             <Link to='/' onClick={this.toggleDrawer}>
-              <ListItem>
-                Beer List
+              <ListItem button>
+                <ListItemText primary='Beer List' />
               </ListItem>
             </Link>
             <Link to='/bar-list' onClick={this.toggleDrawer}>
-              <ListItem>
-                Bar List
+              <ListItem button>
+                <ListItemText primary='Bar List' />
               </ListItem>
             </Link>
             <Link to='/' onClick={this.toggleDrawer}>
-              <ListItem>
-                Map
+              <ListItem button>
+                <ListItemText primary='Map' />
               </ListItem>
             </Link>
             <Link to='/' onClick={this.toggleDrawer}>
-              <ListItem>
-                Rank
+              <ListItem button>
+                <ListItemText primary='Rank' />
               </ListItem>
             </Link>
             <Link to='/' onClick={this.toggleDrawer}>
-              <ListItem>
-                Login
+              <ListItem button>
+                <ListItemText primary='Login' />
               </ListItem>
             </Link>
           </List>
@@ -69,5 +70,6 @@ class NavBar extends Component {
     );
   }
 }
+
 
 export default NavBar;
