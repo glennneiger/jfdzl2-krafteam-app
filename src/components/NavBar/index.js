@@ -6,12 +6,15 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+
+import './style.css'
+
 class NavBar extends Component {
 
   render() {
     return (
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className="tool-bar">
           <IconButton color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
