@@ -5,7 +5,7 @@ class Rank extends Component {
         return (
             <div>
                 Rank
-                fdfdf
+                
             </div>
         );
     }

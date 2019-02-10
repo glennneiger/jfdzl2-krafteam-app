@@ -14,15 +14,9 @@ class App extends Component {
             <Router>
                 <div>
                     <NavBar />
-
-<<<<<<< HEAD
-                    <Route path='/' component={Main} />
-                    <Route path='/ranking' component={Rank} />
-=======
                     <Route exact path='/' component={Main} />
                     <Route path='/bar-list' component={BarList} />
-
->>>>>>> develop
+                    <Route path='/ranking' component={Rank} />
                     <BottomBar />
                 </div>
             </Router>
