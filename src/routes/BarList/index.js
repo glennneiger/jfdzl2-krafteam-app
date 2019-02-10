@@ -4,7 +4,7 @@ class BarList extends Component {
     render() {
         return (
             <div>
-                BarList
+                Lista barów
             </div>
         );
     }
