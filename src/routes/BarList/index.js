@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import GridList from '../../components/GridList'
 class BarList extends Component {
     render() {
         return (
@@ -13,6 +14,7 @@ class BarList extends Component {
                     <span>Bar3  </span>
                     <span>Bar4  </span>
                 </p>
+<GridList></GridList>
             </div>
         );
     }
