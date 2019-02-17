@@ -58,7 +58,7 @@ class NavBar extends Component {
                 Rank
               </ListItem>
             </Link>
-            <Link to='/' onClick={this.toggleDrawer}>
+            <Link to='/login' onClick={this.toggleDrawer}>
               <ListItem>
                 Login
               </ListItem>
