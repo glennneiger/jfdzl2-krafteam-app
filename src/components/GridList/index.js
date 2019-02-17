@@ -7,7 +7,14 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import tileData from './tileData';
+// import tileData from './tileData';
+
+import bar01 from '../Tiles/daffyduck.png'
+import bar02 from '../Tiles/bugsbunny.png'
+import bar03 from '../Tiles/coyote.png'
+import bar04 from '../Tiles/roadrunner.png'
+import bar05 from '../Tiles/Brick.jpg'
+import bar06 from '../Tiles/hop.jpg'
 
 const styles = theme => ({
   root: {
@@ -18,14 +25,22 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 500,
-    height: 450,
+    width: '60%',
+    height: 600
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
   },
 });
 
+const tileData = [
+  {name: 'bar 01', location: 'lublin 111', image: bar01, title: 'daffyduck'},
+  {name: 'bar 02', location: 'lublin 222', image: bar02, title: 'bugsbunny'},
+  {name: 'bar 03', location: 'lublin 333', image: bar03, title: 'coyote'},
+  {name: 'bar 04', location: 'lublin 444', image: bar04, title: 'roadrunner'},
+  {name: 'bar 05', location: 'lublin 555', image: bar05, title: 'roadrunner'},
+  {name: 'bar 06', location: 'lublin 666', image: bar06, title: 'hop'},
+];
 /**
  * The example data is structured as follows:
  *
@@ -48,16 +63,16 @@ function TitlebarGridList(props) {
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
+          <ListSubheader component="div">BarList</ListSubheader>
+      <GridList cellHeight={400} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">December</ListSubheader>
         </GridListTile>
         {tileData.map(tile => (
           <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
+            <img src={tile.image} alt={tile.title} />
             <GridListTileBar
-              title={tile.title}
-              subtitle={<span>by: {tile.author}</span>}
+              title={tile.name}
+              subtitle={<span>address: {tile.location}</span>}
               actionIcon={
                 <IconButton className={classes.icon}>
                   <InfoIcon />
