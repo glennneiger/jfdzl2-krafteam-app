@@ -1,5 +1,16 @@
 
 
 .textFildContainer{
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #212529;
 }
+    .textFildContainer fieldset{
+        border-color: #fed136 !important;
+    }
+
+    .textFildContainer legend{
+       color: #fed136 !important;
+       background-color: #fed136;
+    }

@@ -1,40 +1,63 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+
 import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
+
 import TextField from '@material-ui/core/TextField';
+import './style.css'
 
-
+const styles = {
+    root: {
+        background: "#212529",
+        color: "#fed136"
+    },
+    focused: {
+        color: "#fed136",
+       
+    },
+    input: {
+        color: "#fed136",
+        
+    }
+};
 
 class Form extends Component {
-    render(){
+    render() {
         const { classes } = this.props;
-        return(
+
+        return (
             <div>
-                <div className = "textFildContainer">
-                <div>
-                 <TextField
-          id="outlined-email-input"
-          label="Email"
-          type="email"
-          name="email"
-          autoComplete="email"
-          margin="normal"
-          variant="outlined"
-        />
-        </div>
-        <div>
-          <TextField
-          id="outlined-password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-          margin="normal"
-          variant="outlined"
-        />
-        </div>
-        </div>
+                <div className="textFildContainer">
+                    <div>
+                        <TextField
+                            className={classes.root}
+                            InputLabelProps={
+                                classes.input
+                            }
+                            InputProps={
+                                classes.input
+                            }
+                            id="outlined-email-input"
+                            label="Email"
+                            type="email"
+                            name="email"
+                            autoComplete="email"
+                            margin="normal"
+                            variant="outlined"
+
+
+                        />
+                    </div>
+                    <div>
+                        <TextField
+                            id="outlined-password-input"
+                            label="Password"
+                            type="password"
+                            autoComplete="current-password"
+                            margin="normal"
+                            variant="outlined"
+                        />
+                    </div>
+                </div>
 
 
             </div>
@@ -44,4 +67,4 @@ class Form extends Component {
 }
 
 
-export default Form;
+export default withStyles(styles)(Form);
