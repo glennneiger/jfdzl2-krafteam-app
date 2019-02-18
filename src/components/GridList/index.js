@@ -6,11 +6,9 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
-// import InfoIcon from '@material-ui/icons/Info';
-import StarIcon from '@material-ui/icons/StarBorder';
+import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 // import tileData from './tileData';
-import Typography from '@material-ui/core/Typography';
 
 import bar01 from '../Tiles/daffyduck.png'
 import bar02 from '../Tiles/bugsbunny.png'
@@ -75,7 +73,7 @@ function TitlebarGridList(props) {
     <div className={classes.root}>
       <GridList cellHeight={300} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-      <ListSubheader component="div">BarList</ListSubheader>
+          <ListSubheader component="div">BarList</ListSubheader>
         </GridListTile>
         {tileData.map(tile => (
           <GridListTile key={tile.img}>
@@ -86,7 +84,6 @@ function TitlebarGridList(props) {
               subtitle={<span>address: {tile.location}</span>}
               actionIcon={
                 <IconButton className={classes.icon}>
-                  {/* <InfoIcon /> */}
                   <StarIcon className={classes.title} />
                   <StarIcon className={classes.title} />
                   <StarIcon className={classes.title} />
