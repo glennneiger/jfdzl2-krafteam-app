@@ -9,7 +9,6 @@ import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 // import tileData from './tileData';
-// import { red } from '@material-ui/core/colors';
 
 import bar06 from '../Tiles/hop.jpg'
 import bar03 from '../Tiles/alcohol.jpg'
@@ -17,7 +16,6 @@ import bar04 from '../Tiles/panties.jpg'
 import bar05 from '../Tiles/sand.jpg'
 import bar01 from '../Tiles/driver.jpg'
 import bar02 from '../Tiles/enemy.png'
-import transitions from '@material-ui/core/styles/transitions';
 
 const styles = theme => ({
   root: {
@@ -25,7 +23,8 @@ const styles = theme => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#fed136',
   },
   gridList: {
     width: 800,
@@ -37,8 +36,7 @@ const styles = theme => ({
   palettePrimary: {
     backgroundColor: '#212529',
     color: '#fed136',
-    border: '#fed136 3px solid',
-    // border: '#fed136 3px solid',
+    border: '#fed136 1px solid',
     borderRadius: 3
   }
 });
@@ -59,7 +57,7 @@ function TitlebarGridList(props) {
     <div className={classes.root}>
       <GridList className={classes.gridList} cellHeight={'250'}>
         <GridListTile className={classes.palettePrimary} key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader style={{color: '#fed136'}} component="div">BarList</ListSubheader>
+          <ListSubheader style={{ color: '#fed136' }} component="div">Lista Barów</ListSubheader>
         </GridListTile>
         {barListData.map(tile => (
           <GridListTile
@@ -70,7 +68,7 @@ function TitlebarGridList(props) {
               // className={classes.palettePrimary}
               title={tile.name}
               subtitle={<span>address: {tile.location}</span>}
-              style={{color: '#fed136'}}
+              style={{ color: '#fed136' }}
               actionIcon={
                 <IconButton className={classes.icon}>
                   <StarIcon className={classes.rate} />
