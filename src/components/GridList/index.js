@@ -9,14 +9,15 @@ import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 // import tileData from './tileData';
-
-import bar01 from '../Tiles/daffyduck.png'
-import bar02 from '../Tiles/bugsbunny.png'
-import bar03 from '../Tiles/coyote.png'
-import bar04 from '../Tiles/roadrunner.png'
-import bar05 from '../Tiles/brick.jpg'
-import bar06 from '../Tiles/hop.jpg'
 // import { red } from '@material-ui/core/colors';
+
+import bar06 from '../Tiles/hop.jpg'
+import bar03 from '../Tiles/alcohol.jpg'
+import bar04 from '../Tiles/panties.jpg'
+import bar05 from '../Tiles/sand.jpg'
+import bar01 from '../Tiles/driver.jpg'
+import bar02 from '../Tiles/enemy.png'
+import transitions from '@material-ui/core/styles/transitions';
 
 const styles = theme => ({
   root: {
@@ -28,7 +29,7 @@ const styles = theme => ({
   },
   gridList: {
     width: 800,
-    height: 600
+    height: '80%'
   },
   icon: {
     color: '#fed136',
@@ -36,59 +37,47 @@ const styles = theme => ({
   palettePrimary: {
     backgroundColor: '#212529',
     color: '#fed136',
-    border: '#fed136 1px solid',
-    borderRadius: 5
+    border: '#fed136 3px solid',
+    // border: '#fed136 3px solid',
+    borderRadius: 3
   }
 });
 
-const tileData = [
-  { name: 'BAR 01', location: 'lublin 111', link: 'www.bar01', image: bar01, title: 'daffyduck' },
-  { name: 'BAR 02', location: 'lublin 222', link: 'www.bar02', image: bar02, title: 'bugsbunny' },
-  { name: 'BAR 03', location: 'lublin 333', link: 'www.bar03', image: bar03, title: 'coyote' },
-  { name: 'BAR 04', location: 'lublin 444', link: 'www.bar04', image: bar04, title: 'roadrunner' },
-  { name: 'BAR 05', location: 'lublin 555', link: 'www.bar05', image: bar05, title: 'roadrunner' },
-  { name: 'BAR 06', location: 'lublin 666', link: 'www.bar06', image: bar06, title: 'hop' },
+const barListData = [
+  { name: 'BAR 01', location: 'lublin 111', link: 'www.bar01', image: bar01, title: 'hop' },
+  { name: 'BAR 02', location: 'lublin 222', link: 'www.bar02', image: bar02, title: 'alcohol' },
+  { name: 'BAR 03', location: 'lublin 333', link: 'www.bar03', image: bar03, title: 'panties' },
+  { name: 'BAR 04', location: 'lublin 444', link: 'www.bar04', image: bar04, title: 'sand' },
+  { name: 'BAR 05', location: 'lublin 555', link: 'www.bar05', image: bar05, title: 'driver' },
+  { name: 'BAR 06', location: 'lublin 666', link: 'www.bar06', image: bar06, title: 'enemy' },
 ];
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- const tileData = [
-   {
-     img: image,
-     title: 'Image',
-     author: 'author',
-   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
+
 function TitlebarGridList(props) {
   const { classes } = props;
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={300} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">BarList</ListSubheader>
+      <GridList className={classes.gridList} cellHeight={'250'}>
+        <GridListTile className={classes.palettePrimary} key="Subheader" cols={2} style={{ height: 'auto' }}>
+          <ListSubheader style={{color: '#fed136'}} component="div">BarList</ListSubheader>
         </GridListTile>
-        {tileData.map(tile => (
-          <GridListTile key={tile.img}>
+        {barListData.map(tile => (
+          <GridListTile
+            className={classes.palettePrimary}
+            key={tile.img}>
             <img src={tile.image} alt={tile.title} />
             <GridListTileBar
-              className={classes.palettePrimary}
+              // className={classes.palettePrimary}
               title={tile.name}
               subtitle={<span>address: {tile.location}</span>}
+              style={{color: '#fed136'}}
               actionIcon={
                 <IconButton className={classes.icon}>
-                  <StarIcon className={classes.title} />
-                  <StarIcon className={classes.title} />
-                  <StarIcon className={classes.title} />
-                  <StarBorderIcon className={classes.title} />
-                  <StarBorderIcon className={classes.title} />
+                  <StarIcon className={classes.rate} />
+                  <StarIcon className={classes.rate} />
+                  <StarBorderIcon className={classes.rate} />
+                  <StarBorderIcon className={classes.rate} />
+                  <StarBorderIcon className={classes.rate} />
                 </IconButton>
               }
             />
