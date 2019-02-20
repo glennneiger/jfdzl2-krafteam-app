@@ -25,11 +25,14 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+
+import bar04 from '../../components/Tiles/panties.jpg'
 
 const styles = theme => ({
     card: {
@@ -75,7 +78,7 @@ class BarCard extends React.Component {
                             aria-label="Recipe"
                             className={classes.avatar}
                             style={{ color: '#212529' }}>
-                            03
+                            04
                         </Avatar>
                     }
                     action={
@@ -83,15 +86,14 @@ class BarCard extends React.Component {
                             <MoreVertIcon />
                         </IconButton>
                     }
-                    title="BAR 03"
+                    title="BAR 04"
                     subheader={<span>address: lublin 333</span>}
-                    image='../../components/panties.jpg'
                 />
                 <CardMedia
                     className={classes.media}
-                    image="/static/images/cards/paella.jpg"
-                    title="BAR 03"
-                />
+                    image={bar04}
+                    title="BAR 04"
+                ></CardMedia>
                 <CardContent>
                     <Typography component="p">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus.
@@ -99,7 +101,7 @@ class BarCard extends React.Component {
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
                     <IconButton aria-label="Add to favorites"style={{ color: 'red' }}>
-                        <FavoriteIcon />
+                        <FavoriteBorderIcon />
                     </IconButton>
                     <IconButton aria-label="Share">
                         <ShareIcon />
@@ -128,7 +130,7 @@ class BarCard extends React.Component {
                         <Typography paragraph>Method:</Typography>
                         <Typography paragraph>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus. Vivamus efficitur urna et neque dignissim tincidunt. Fusce at libero quis nibh condimentum volutpat a sed arcu. Curabitur massa nulla, mattis quis pulvinar vitae, egestas non arcu. Curabitur nec lorem eu tellus feugiat aliquet.
-            </Typography>
+                        </Typography>
                     </CardContent>
                 </Collapse>
             </Card>
