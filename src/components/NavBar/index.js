@@ -48,11 +48,6 @@ class NavBar extends Component {
                 Bar List
               </ListItem>
             </Link>
-            <Link to='/bar' onClick={this.toggleDrawer}>
-              <ListItem>
-                Bar
-              </ListItem>
-            </Link>
             <Link to='/' onClick={this.toggleDrawer}>
               <ListItem>
                 Map

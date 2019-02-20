@@ -8,14 +8,13 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-// import tileData from './tileData';
 
-import bar06 from '../Tiles/hop.jpg'
+import bar00 from '../Tiles/hop.jpg'
+import bar01 from '../Tiles/driver.jpg'
+import bar02 from '../Tiles/enemy.png'
 import bar03 from '../Tiles/alcohol.jpg'
 import bar04 from '../Tiles/panties.jpg'
 import bar05 from '../Tiles/sand.jpg'
-import bar01 from '../Tiles/driver.jpg'
-import bar02 from '../Tiles/enemy.png'
 
 const styles = theme => ({
   root: {
@@ -41,13 +40,13 @@ const styles = theme => ({
   }
 });
 
-const barListData = [
+export const barListData = [
+  { name: 'BAR 00', location: 'lublin 000', link: 'www.bar00', image: bar00, title: 'enemy' },
   { name: 'BAR 01', location: 'lublin 111', link: 'www.bar01', image: bar01, title: 'hop' },
   { name: 'BAR 02', location: 'lublin 222', link: 'www.bar02', image: bar02, title: 'alcohol' },
   { name: 'BAR 03', location: 'lublin 333', link: 'www.bar03', image: bar03, title: 'panties' },
   { name: 'BAR 04', location: 'lublin 444', link: 'www.bar04', image: bar04, title: 'sand' },
   { name: 'BAR 05', location: 'lublin 555', link: 'www.bar05', image: bar05, title: 'driver' },
-  { name: 'BAR 06', location: 'lublin 666', link: 'www.bar06', image: bar06, title: 'enemy' },
 ];
 
 function TitlebarGridList(props) {
@@ -71,11 +70,11 @@ function TitlebarGridList(props) {
               style={{ color: '#fed136' }}
               actionIcon={
                 <IconButton className={classes.icon}>
-                  <StarIcon className={classes.rate} />
-                  <StarIcon className={classes.rate} />
-                  <StarBorderIcon className={classes.rate} />
-                  <StarBorderIcon className={classes.rate} />
-                  <StarBorderIcon className={classes.rate} />
+                  <StarIcon />
+                  <StarIcon />
+                  <StarBorderIcon />
+                  <StarBorderIcon />
+                  <StarBorderIcon />
                 </IconButton>
               }
             />

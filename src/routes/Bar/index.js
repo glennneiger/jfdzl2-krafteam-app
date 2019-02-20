@@ -1,16 +1,4 @@
 import React, { Component } from 'react';
-
-import GridList from '../../components/GridList'
-// class Bar extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 Karta wybranego baru
-//             </div>
-//         );
-//     }
-// }
-
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
@@ -25,11 +13,13 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+
+import { barListData } from '../../components/GridList'
 
 const styles = theme => ({
     card: {
@@ -53,7 +43,7 @@ const styles = theme => ({
         transform: 'rotate(180deg)',
     },
     avatar: {
-        backgroundColor: '#fed136',
+        backgroundColor: '#212529' ,
     },
 });
 
@@ -66,45 +56,45 @@ class BarCard extends React.Component {
 
     render() {
         const { classes } = this.props;
+        const theBar = barListData[0]
 
         return (
             <Card className={classes.card}>
                 <CardHeader
                     avatar={
                         <Avatar
-                            aria-label="Recipe"
+                            aria-label="Bar"
                             className={classes.avatar}
-                            style={{ color: '#212529' }}>
-                            03
+                            style={{ color: '#fed136'}}
+                            >
+                            {theBar.key}
                         </Avatar>
                     }
-                    action={
-                        <IconButton>
-                            <MoreVertIcon />
-                        </IconButton>
-                    }
-                    title="BAR 03"
-                    subheader={<span>address: lublin 333</span>}
-                    image='../../components/panties.jpg'
+                    title={theBar.name}
+                    subheader={<span>address: {theBar.location}</span>}
                 />
                 <CardMedia
                     className={classes.media}
-                    image="/static/images/cards/paella.jpg"
-                    title="BAR 03"
-                />
+                    image={theBar.image}
+                    >
+                </CardMedia>
                 <CardContent>
                     <Typography component="p">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus.
-          </Typography>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. 
+                    </Typography>
+                    <hr></hr>
+                    <Typography component="p">
+                        Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus. Vivamus efficitur urna et neque dignissim tincidunt. 
+                    </Typography>
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
-                    <IconButton aria-label="Add to favorites"style={{ color: 'red' }}>
-                        <FavoriteIcon />
+                    <IconButton aria-label="Add to favorites" style={{ color: 'red' }}>
+                        <FavoriteBorderIcon />
                     </IconButton>
                     <IconButton aria-label="Share">
                         <ShareIcon />
                     </IconButton>
-                    <IconButton aria-label="Rate"  style={{ color: '#fed136' }}>
+                    <IconButton aria-label="Rate" style={{ color: '#fed136' }}>
                         <StarIcon className={classes.rate} />
                         <StarIcon className={classes.rate} />
                         <StarBorderIcon className={classes.rate} />
@@ -125,10 +115,10 @@ class BarCard extends React.Component {
                 </CardActions>
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph>Method:</Typography>
+                        <Typography paragraph>Opis:</Typography>
                         <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus. Vivamus efficitur urna et neque dignissim tincidunt. Fusce at libero quis nibh condimentum volutpat a sed arcu. Curabitur massa nulla, mattis quis pulvinar vitae, egestas non arcu. Curabitur nec lorem eu tellus feugiat aliquet.
-            </Typography>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus. 
+                        </Typography>
                     </CardContent>
                 </Collapse>
             </Card>
