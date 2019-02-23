@@ -17,7 +17,7 @@ class App extends Component {
                     <Route exact path='/' component={Main} />
                     <Route path='/bar-list' component={BarList} />
                     <Route path='/ranking' component={Rank} />
-                    <BottomBar />
+                    {/* <BottomBar /> */}
                 </div>
             </Router>
         );
