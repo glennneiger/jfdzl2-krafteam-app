@@ -24,12 +24,11 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
   },
   card: {
-    maxWidth: 345,
+    maxWidth: 645,
   },
   media: {
     height: 140,
   },
-
 });
 
 // const styles = {
@@ -144,7 +143,6 @@ function BeerList(props) {
         </Grid>
         </Grid>
     </Card>
-
   );
 }
 
