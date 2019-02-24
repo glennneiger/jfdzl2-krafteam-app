@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import { withStyles } from '@material-ui/core/styles';
-
+import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
 import './style.css'
 
 const styles = {
@@ -12,11 +12,11 @@ const styles = {
     },
     focused: {
         color: "#fed136",
-       
+
     },
     input: {
         color: "#fed136",
-        
+
     }
 };
 
@@ -26,40 +26,52 @@ class Form extends Component {
 
         return (
             <div>
-                <div className="textFildContainer">
-                    <div>
-                        <TextField
-                            className={classes.root}
-                            InputLabelProps={
-                                classes.input
-                            }
-                            InputProps={
-                                classes.input
-                            }
-                            id="outlined-email-input"
-                            label="Email"
-                            type="email"
-                            name="email"
-                            autoComplete="email"
-                            margin="normal"
-                            variant="outlined"
+                <div className="formContainer">
+                    <div className="textFieldContainer">
+                        <div>
+                            <div >
+                                <TextField
+
+                                    InputLabelProps={
+                                        classes.input
+                                    }
+                                    InputProps={
+                                        classes.input
+                                    }
+                                    id="outlined-email-input"
+                                    label="Email"
+                                    type="email"
+                                    name="email"
+                                    autoComplete="email"
+                                    margin="normal"
+                                    variant="outlined"
+                                    fullWidth
 
 
-                        />
-                    </div>
-                    <div>
-                        <TextField
-                            id="outlined-password-input"
-                            label="Password"
-                            type="password"
-                            autoComplete="current-password"
-                            margin="normal"
-                            variant="outlined"
-                        />
+                                />
+                            </div>
+                            <div>
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Password"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    margin="normal"
+                                    variant="outlined"
+                                    fullWidth
+                                />
+                            </div>
+                        </div>
+                        <div className="buttonsContainer">
+                        <Button variant="outlined" color="primary" className={classes.button}>
+                            LOG IN
+                        </Button>
+                        <Button variant="outlined" color="primary" className={classes.button}>
+                            SIGN IN
+                        </Button>
+                        </div>
                     </div>
                 </div>
-
-
             </div>
 
         )
