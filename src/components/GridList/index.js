@@ -42,12 +42,12 @@ const styles = theme => ({
 });
 
 export const barListData = [
-  { name: 'BAR 00', location: 'lublin 000', link: 'www.bar00', image: bar00, title: 'enemy' },
-  { name: 'BAR 01', location: 'lublin 111', link: 'www.bar01', image: bar01, title: 'hop' },
-  { name: 'BAR 02', location: 'lublin 222', link: 'www.bar02', image: bar02, title: 'alcohol' },
-  { name: 'BAR 03', location: 'lublin 333', link: 'www.bar03', image: bar03, title: 'panties' },
-  { name: 'BAR 04', location: 'lublin 444', link: 'www.bar04', image: bar04, title: 'sand' },
-  { name: 'BAR 05', location: 'lublin 555', link: 'www.bar05', image: bar05, title: 'driver' },
+  { name: 'BAR 00', location: 'lublin 000', rank: '2', link: 'www.bar00', image: bar00, title: 'enemy' },
+  { name: 'BAR 01', location: 'lublin 111', rank: '0', link: 'www.bar01', image: bar01, title: 'hop' },
+  { name: 'BAR 02', location: 'lublin 222', rank: '4', link: 'www.bar02', image: bar02, title: 'alcohol' },
+  { name: 'BAR 03', location: 'lublin 333', rank: '3', link: 'www.bar03', image: bar03, title: 'panties' },
+  { name: 'BAR 04', location: 'lublin 444', rank: '5', link: 'www.bar04', image: bar04, title: 'sand' },
+  { name: 'BAR 05', location: 'lublin 555', rank: '1', link: 'www.bar05', image: bar05, title: 'driver' },
 ];
 
 function TitlebarGridList(props) {

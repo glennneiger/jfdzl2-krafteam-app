@@ -16,8 +16,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarRatingComponent from 'react-star-rating-component';
+
 
 import { barListData } from '../../components/GridList'
 
@@ -43,7 +43,7 @@ const styles = theme => ({
         transform: 'rotate(180deg)',
     },
     avatar: {
-        backgroundColor: '#212529' ,
+        backgroundColor: '#212529',
     },
 });
 
@@ -65,8 +65,8 @@ class BarCard extends React.Component {
                         <Avatar
                             aria-label="Bar"
                             className={classes.avatar}
-                            style={{ color: '#fed136'}}
-                            >
+                            style={{ color: '#fed136' }}
+                        >
                             {theBar.key}
                         </Avatar>
                     }
@@ -76,15 +76,15 @@ class BarCard extends React.Component {
                 <CardMedia
                     className={classes.media}
                     image={theBar.image}
-                    >
+                >
                 </CardMedia>
                 <CardContent>
                     <Typography component="p">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in.
                     </Typography>
                     <hr></hr>
                     <Typography component="p">
-                        Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus. Vivamus efficitur urna et neque dignissim tincidunt. 
+                        Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus. Vivamus efficitur urna et neque dignissim tincidunt.
                     </Typography>
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
@@ -94,13 +94,7 @@ class BarCard extends React.Component {
                     <IconButton aria-label="Share">
                         <ShareIcon />
                     </IconButton>
-                    <IconButton aria-label="Rate" style={{ color: '#fed136' }}>
-                        <StarIcon className={classes.rate} />
-                        <StarIcon className={classes.rate} />
-                        <StarBorderIcon className={classes.rate} />
-                        <StarBorderIcon className={classes.rate} />
-                        <StarBorderIcon className={classes.rate} />
-                    </IconButton>
+                    <StarRatingComponent />
 
                     <IconButton
                         className={classnames(classes.expand, {
@@ -117,7 +111,7 @@ class BarCard extends React.Component {
                     <CardContent>
                         <Typography paragraph>Opis:</Typography>
                         <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus. 
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus.
                         </Typography>
                     </CardContent>
                 </Collapse>
