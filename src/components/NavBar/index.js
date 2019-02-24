@@ -8,9 +8,12 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import './style.css'
 import { ListItem } from '@material-ui/core';
+import blackLogo from '../../assets/beer_logo_black.png';
+import yellowLogo from '../../assets/beer_logo1.png'
 
 class NavBar extends Component {
 
@@ -27,40 +30,49 @@ class NavBar extends Component {
       <React.Fragment>
         <AppBar position="static">
           <Toolbar className="tool-bar">
-            <IconButton color="inherit" aria-label="Menu" onClick={this.toggleDrawer}>
+            <Link to='/'>
+              <img src={yellowLogo} className="bar-logo" alt="" />
+            </Link>
+            <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>
+              KrafTeam
+            </Typography>
+            <Button color="inherit">Login</Button>
+            <IconButton color="inherit" aria-label="Menu" onClick={this.toggleDrawer} className="menuButton">
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit">
-              News
-          </Typography>
-            <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
-        <Drawer open={this.state.open} onClose={this.toggleDrawer}>
+        <Drawer anchor="right" open={this.state.open} onClose={this.toggleDrawer}>
+          <img src={blackLogo} className="menu-logo" alt="" />
           <List>
-            <Link to='/beer-list' onClick={this.toggleDrawer}>
+            <Link className="link" to='/' onClick={this.toggleDrawer}>
+              <ListItem button>
+                <ListItemText primary='Beer List' />
+              </ListItem>
+            </Link>
+            <Link className="link" to='/beer-list' onClick={this.toggleDrawer}>
               <ListItem>
                 Beer List
               </ListItem>
             </Link>
-            <Link to='/bar-list' onClick={this.toggleDrawer}>
-              <ListItem>
-                Bar List
+            <Link className="link" to='/bar-list' onClick={this.toggleDrawer}>
+              <ListItem button>
+                <ListItemText primary='Bar List' />
               </ListItem>
             </Link>
-            <Link to='/' onClick={this.toggleDrawer}>
-              <ListItem>
-                Map
+            <Link className="link" to='/' onClick={this.toggleDrawer}>
+              <ListItem button>
+                <ListItemText primary='Map' />
               </ListItem>
             </Link>
-            <Link to='/' onClick={this.toggleDrawer}>
-              <ListItem>
-                Rank
+            <Link className="link" to='/' onClick={this.toggleDrawer}>
+              <ListItem button>
+                <ListItemText primary='Rank' />
               </ListItem>
             </Link>
-            <Link to='/' onClick={this.toggleDrawer}>
-              <ListItem>
-                Login
+            <Link className="link" to='/' onClick={this.toggleDrawer}>
+              <ListItem button>
+                <ListItemText primary='Login' />
               </ListItem>
             </Link>
           </List>
@@ -69,5 +81,6 @@ class NavBar extends Component {
     );
   }
 }
+
 
 export default NavBar;
