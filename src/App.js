@@ -17,15 +17,13 @@ class App extends Component {
             <Router>
                 <div>
                     <NavBar />
-                    <Route exact path='/' component={Main} />
-                    <Route path='/bar-list' component={BarList} />
-                    <Route path='/beer-list' component={BeerList} />
-
+                    <div style={{padding: '64px 64px'}}>
+                        <Route exact path='/' component={Main} />
+                        <Route path='/bar-list' component={BarList} />
+                        <Route path='/beer-list' component={BeerList} />
+                        <Route path='/ranking' component={Rank} />
+                    </div>
                     <BottomBar />
-
-                    <Route path='/ranking' component={Rank} />
-                    {/* <BottomBar /> */}
-
                 </div>
             </Router>
         );
