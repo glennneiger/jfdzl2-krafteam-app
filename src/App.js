@@ -6,11 +6,7 @@ import BottomBar from './components/BottomBar';
 import Main from './routes/Main'
 import BarList from './routes/BarList'
 import BeerList from './routes/BeerList'
-<<<<<<< HEAD
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import BarCard from './routes/Bar'
-=======
->>>>>>> develop
 import Rank from './routes/Rank/';
 
 import './styles.css'
