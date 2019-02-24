@@ -1,0 +1,6 @@
+.bottom-bar {
+    background-color: #212529 !important;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
