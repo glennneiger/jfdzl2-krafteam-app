@@ -55,8 +55,16 @@ function TitlebarGridList(props) {
 
   return (
     <div className={classes.root}>
-      <GridList className={classes.gridList} cellHeight={'250'}>
-        <GridListTile className={classes.palettePrimary} key="Subheader" cols={2} style={{ height: 'auto' }}>
+      <GridList
+        className={classes.gridList}
+        cellHeight={'250'}
+      >
+        <GridListTile
+          className={classes.palettePrimary}
+          key="Subheader"
+          cols={2}
+          style={{ height: 'auto' }}
+        >
           <ListSubheader style={{ color: '#fed136' }} component="div">Lista Barów</ListSubheader>
         </GridListTile>
         {barListData.map((tile, index) => (
@@ -65,7 +73,6 @@ function TitlebarGridList(props) {
             key={tile.img}>
             <img src={tile.image} alt={tile.title} />
             <GridListTileBar
-              // className={classes.palettePrimary}
               title={<Link to={`/bar/${index}`}>{tile.name}</Link>}
               subtitle={<span>address: {tile.location}</span>}
               style={{ color: '#fed136' }}
