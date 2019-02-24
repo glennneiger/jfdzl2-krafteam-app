@@ -38,7 +38,7 @@ class NavBar extends Component {
         </AppBar>
         <Drawer open={this.state.open} onClose={this.toggleDrawer}>
           <List>
-            <Link to='/' onClick={this.toggleDrawer}>
+            <Link to='/beer-list' onClick={this.toggleDrawer}>
               <ListItem>
                 Beer List
               </ListItem>
