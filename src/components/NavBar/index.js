@@ -33,7 +33,7 @@ class NavBar extends Component {
             <Link to='/'>
               <img src={yellowLogo} className="bar-logo" alt="" />
             </Link>
-            <Typography variant="h6" color="inherit" style={{flexGrow: 1}}>
+            <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>
               KrafTeam
             </Typography>
             <Button color="inherit">Login</Button>
@@ -48,6 +48,11 @@ class NavBar extends Component {
             <Link className="link" to='/' onClick={this.toggleDrawer}>
               <ListItem button>
                 <ListItemText primary='Beer List' />
+              </ListItem>
+            </Link>
+            <Link className="link" to='/beer-list' onClick={this.toggleDrawer}>
+              <ListItem>
+                Beer List
               </ListItem>
             </Link>
             <Link className="link" to='/bar-list' onClick={this.toggleDrawer}>
