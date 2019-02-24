@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -58,14 +59,14 @@ function TitlebarGridList(props) {
         <GridListTile className={classes.palettePrimary} key="Subheader" cols={2} style={{ height: 'auto' }}>
           <ListSubheader style={{ color: '#fed136' }} component="div">Lista Barów</ListSubheader>
         </GridListTile>
-        {barListData.map(tile => (
+        {barListData.map((tile, index) => (
           <GridListTile
             className={classes.palettePrimary}
             key={tile.img}>
             <img src={tile.image} alt={tile.title} />
             <GridListTileBar
               // className={classes.palettePrimary}
-              title={tile.name}
+              title={<Link to={`/bar/${index}`}>{tile.name}</Link>}
               subtitle={<span>address: {tile.location}</span>}
               style={{ color: '#fed136' }}
               actionIcon={

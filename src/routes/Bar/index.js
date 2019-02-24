@@ -56,7 +56,7 @@ class BarCard extends React.Component {
 
     render() {
         const { classes } = this.props;
-        const theBar = barListData[0]
+        const theBar = barListData[this.props.match.params.id]
 
         return (
             <Card className={classes.card}>
@@ -89,7 +89,7 @@ class BarCard extends React.Component {
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
                     <IconButton aria-label="Add to favorites" style={{ color: 'red' }}>
-                        <FavoriteBorderIcon />
+                        <FavoriteIcon />
                     </IconButton>
                     <IconButton aria-label="Share">
                         <ShareIcon />
