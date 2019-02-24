@@ -15,7 +15,11 @@
     "react-donut-chart": "^1.1.8",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",
+<<<<<<< HEAD
     "react-star-rating-component": "^1.4.1"
+=======
+    "typeface-roboto": "0.0.54"
+>>>>>>> develop
   },
   "scripts": {
     "start": "react-scripts start",
