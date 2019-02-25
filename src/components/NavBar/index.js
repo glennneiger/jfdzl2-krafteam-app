@@ -45,11 +45,6 @@ class NavBar extends Component {
         <Drawer anchor="right" open={this.state.open} onClose={this.toggleDrawer}>
           <img src={blackLogo} className="menu-logo" alt="" />
           <List>
-            <Link className="link" to='/' onClick={this.toggleDrawer}>
-              <ListItem button>
-                <ListItemText primary='Beer List' />
-              </ListItem>
-            </Link>
             <Link className="link" to='/beer-list' onClick={this.toggleDrawer}>
               <ListItem>
                 Beer List
