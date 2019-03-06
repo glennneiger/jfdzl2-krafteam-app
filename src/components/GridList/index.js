@@ -16,6 +16,8 @@ import bar02 from '../Tiles/enemy.png'
 import bar03 from '../Tiles/alcohol.jpg'
 import bar04 from '../Tiles/panties.jpg'
 import bar05 from '../Tiles/sand.jpg'
+import bar06 from '../Tiles/panties.jpg'
+import bar07 from '../Tiles/sand.jpg'
 
 const styles = theme => ({
   root: {
@@ -48,6 +50,8 @@ export const barListData = [
   { name: 'BAR 03', location: 'lublin 333', rank: '3', link: 'www.bar03', image: bar03, title: 'panties' },
   { name: 'BAR 04', location: 'lublin 444', rank: '5', link: 'www.bar04', image: bar04, title: 'sand' },
   { name: 'BAR 05', location: 'lublin 555', rank: '1', link: 'www.bar05', image: bar05, title: 'driver' },
+  { name: 'BAR 06', location: 'lublin 666', rank: '5', link: 'www.bar06', image: bar06, title: 'sand' },
+  { name: 'BAR 07', location: 'lublin 777', rank: '3', link: 'www.bar07', image: bar07, title: 'driver' },
 ];
 
 function TitlebarGridList(props) {
@@ -69,11 +73,12 @@ function TitlebarGridList(props) {
         </GridListTile>
         {barListData.map((tile, index) => (
           <GridListTile className={classes.palettePrimary} key={tile.id}>
-            <Link to={`/bar/${index}`}><img
-              src={tile.image}
-              alt={tile.title}
-              style={{ width: '100%' }}
-            />
+            <Link to={`/bar/${index}`}>
+              <img
+                src={tile.image}
+                alt={tile.title}
+                style={{ width: '100%' }}
+              />
             </Link>
             <GridListTileBar
               title={tile.name}

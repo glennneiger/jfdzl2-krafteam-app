@@ -24,6 +24,7 @@ import { barListData } from '../../components/GridList'
 const styles = theme => ({
     card: {
         maxWidth: 800,
+        margin: 'auto'
     },
     media: {
         height: 0,
@@ -43,8 +44,16 @@ const styles = theme => ({
         transform: 'rotate(180deg)',
     },
     avatar: {
-        backgroundColor: '#212529',
+        color: '#212529',
+        backgroundColor: '#fed136',
     },
+    palettePrimary: {
+        backgroundColor: '#212529',
+        color: '#fed136 !important',
+        border: '#fed136 1px solid',
+        borderRadius: 3
+    }
+
 });
 
 class BarCard extends React.Component {
@@ -54,68 +63,124 @@ class BarCard extends React.Component {
         this.setState(state => ({ expanded: !state.expanded }));
     };
 
+    onStarClick = (nextValue, prevValue, name) => {
+        console.log(nextValue, prevValue, name);
+        this.setState({ rating: nextValue });
+        // this.setState({ rating2: nextValue });
+    }
+    onHashClick = (nextValue, prevValue, name) => {
+        console.log(nextValue, prevValue, name);
+        this.setState({ rating2: nextValue });
+    }
+
+
     render() {
         const { classes } = this.props;
         const theBar = barListData[this.props.match.params.id]
+        const { rating } = this.state;
+        const { rating2 } = this.state;
 
         return (
-            <Card className={classes.card}>
-                <CardHeader
-                    avatar={
-                        <Avatar
-                            aria-label="Bar"
-                            className={classes.avatar}
-                            style={{ color: '#fed136' }}
-                        >
-                            {theBar.key}
-                        </Avatar>
-                    }
-                    title={theBar.name}
-                    subheader={<span>address: {theBar.location}</span>}
-                />
-                <CardMedia
-                    className={classes.media}
-                    image={theBar.image}
-                >
-                </CardMedia>
-                <CardContent>
-                    <Typography component="p">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in.
-                    </Typography>
-                    <hr></hr>
-                    <Typography component="p">
-                        Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus. Vivamus efficitur urna et neque dignissim tincidunt.
-                    </Typography>
-                </CardContent>
-                <CardActions className={classes.actions} disableActionSpacing>
-                    <IconButton aria-label="Add to favorites" style={{ color: 'red' }}>
-                        <FavoriteIcon />
-                    </IconButton>
-                    <IconButton aria-label="Share">
-                        <ShareIcon />
-                    </IconButton>
-                    <StarRatingComponent />
+            <div style={{ backgroundColor: '#fed136' }}>
+                <Card className={classes.card}>
+                    <div className={classes.palettePrimary}>
+                        <CardHeader
+                            avatar={
+                                <Avatar
+                                    aria-label="Bar"
+                                    className={classes.avatar}>
+                                    {(rating)}
+                                </Avatar>
+                            }
+                            title={
+                                <span style={{ color: '#fed136' }}>{theBar.name}</span>}
+                            subheader={
+                                <span style={{ color: '#fed136' }}>address: {theBar.location}, <a href={theBar.link}>website</a></span>}
 
-                    <IconButton
-                        className={classnames(classes.expand, {
-                            [classes.expandOpen]: this.state.expanded,
-                        })}
-                        onClick={this.handleExpandClick}
-                        aria-expanded={this.state.expanded}
-                        aria-label="Show more"
-                    >
-                        <ExpandMoreIcon />
-                    </IconButton>
-                </CardActions>
-                <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-                    <CardContent>
-                        <Typography paragraph>Opis:</Typography>
-                        <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus.
-                        </Typography>
-                    </CardContent>
-                </Collapse>
-            </Card>
+                        />
+                        <CardMedia
+                            className={classes.media}
+                            image={theBar.image}
+                        >
+                        </CardMedia>
+                        <CardContent>
+                            <Typography
+                                component="p"
+                                style={{ color: '#fed136' }}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in.
+                            </Typography>
+                            <hr></hr>
+                            <Typography
+                                component="p"
+                                style={{ color: '#fed136' }}>
+                                Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus. Vivamus efficitur urna et neque dignissim tincidunt.
+                            </Typography>
+                        </CardContent>
+                        <CardActions
+                            className={classes.actions}
+                            disableActionSpacing
+                        >
+                            <IconButton aria-label="Add to favorites" style={{ color: 'red' }}>
+                                <FavoriteBorderIcon />
+                            </IconButton>
+                            <IconButton
+                                aria-label="Share"
+                                style={{ color: '#fed136' }}>
+                                <ShareIcon />
+                            </IconButton>
+                                <div className="rating-stars">
+                                    <StarRatingComponent
+                                        name='rate'
+                                        starCount={5}
+                                        value={rating}
+                                        emptyStarColor={'#fed13640'}
+                                        starColor={'#fed136'}
+                                        onStarClick={this.onStarClick} />
+                                    ({rating})
+                                </div>
+                                <div className="rating-stars">
+                                    <StarRatingComponent
+                                        renderStarIcon={() => <span>#</span>}
+                                        name="rate2"
+                                        starCount={5}
+                                        value={rating2}
+                                        emptyStarColor={'#fed13640'}
+                                        starColor={'#fed136'}
+                                        onHashClick={this.onHashClick} />
+                                    ({rating2})
+                                </div>
+
+                            <IconButton
+                                className={classnames(classes.expand, {
+                                    [classes.expandOpen]: this.state.expanded,
+                                })}
+                                onClick={this.handleExpandClick}
+                                aria-expanded={this.state.expanded}
+                                aria-label="Show more"
+                            >
+                                <ExpandMoreIcon />
+                            </IconButton>
+                        </CardActions>
+                        <Collapse
+                            in={this.state.expanded}
+                            timeout="auto"
+                            unmountOnExit>
+                            <CardContent>
+                                <Typography
+                                    paragraph
+                                    style={{ color: '#fed136' }}>
+                                    Opis:
+                                </Typography>
+                                <Typography
+                                    paragraph
+                                    style={{ color: '#fed136' }}>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in. Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus.
+                                </Typography>
+                            </CardContent>
+                        </Collapse>
+                    </div>
+                </Card>
+            </div>
         );
     }
 }
