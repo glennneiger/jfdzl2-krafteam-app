@@ -44,14 +44,14 @@ const styles = theme => ({
 });
 
 export const barListData = [
-  { name: 'BAR 00', location: 'lublin 000', rank: '2', link: 'www.bar00', image: bar00, title: 'enemy' },
-  { name: 'BAR 01', location: 'lublin 111', rank: '0', link: 'www.bar01', image: bar01, title: 'hop' },
-  { name: 'BAR 02', location: 'lublin 222', rank: '4', link: 'www.bar02', image: bar02, title: 'alcohol' },
-  { name: 'BAR 03', location: 'lublin 333', rank: '3', link: 'www.bar03', image: bar03, title: 'panties' },
-  { name: 'BAR 04', location: 'lublin 444', rank: '5', link: 'www.bar04', image: bar04, title: 'sand' },
-  { name: 'BAR 05', location: 'lublin 555', rank: '1', link: 'www.bar05', image: bar05, title: 'driver' },
-  { name: 'BAR 06', location: 'lublin 666', rank: '5', link: 'www.bar06', image: bar06, title: 'sand' },
-  { name: 'BAR 07', location: 'lublin 777', rank: '3', link: 'www.bar07', image: bar07, title: 'driver' },
+  { name: 'BAR 00', location: 'lublin 000', rank: '2', link: 'http://onet.pl', image: bar00, title: 'enemy' },
+  { name: 'BAR 01', location: 'lublin 111', rank: '0', link: 'http://gazeta.pl', image: bar01, title: 'hop' },
+  { name: 'BAR 02', location: 'lublin 222', rank: '4', link: 'http://wp.pl', image: bar02, title: 'alcohol' },
+  { name: 'BAR 03', location: 'lublin 333', rank: '3', link: 'http://o2.pl', image: bar03, title: 'panties' },
+  { name: 'BAR 04', location: 'lublin 444', rank: '5', link: 'http://wykop.pl', image: bar04, title: 'sand' },
+  { name: 'BAR 05', location: 'lublin 555', rank: '1', link: 'http://olx.pl', image: bar05, title: 'driver' },
+  { name: 'BAR 06', location: 'lublin 666', rank: '5', link: 'http://allegro.pl', image: bar06, title: 'sand' },
+  { name: 'BAR 07', location: 'lublin 777', rank: '3', link: 'http://interia.pl', image: bar07, title: 'driver' },
 ];
 
 function TitlebarGridList(props) {
