@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import BottomBar from './components/BottomBar';
 import Main from './routes/Main'
 import BarList from './routes/BarList'
+import BarCreate from './routes/BarCreate'
 import Login from './routes/Login'
 import BeerList from './routes/BeerList'
 import BarCard from './routes/Bar'
@@ -21,8 +22,9 @@ class App extends Component {
                     <NavBar />
                     <Route exact path='/' component={Main} />
                     <Route path='/bar-list' component={BarList} />
+                    <Route path='/bar-create' component={BarCreate} />
                     <Route path='/bar/:id' component={BarCard} />
-                    <Route path='/login' component={Login}/> 
+                    <Route path='/login' component={Login} />
                     <Route path='/beer-list' component={BeerList} />
 
                     <BottomBar />
