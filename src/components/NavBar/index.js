@@ -70,6 +70,11 @@ class NavBar extends Component {
                 <ListItemText primary='Login' />
               </ListItem>
             </Link>
+            <Link className="link" to='/add-bar' onClick={this.toggleDrawer}>
+              <ListItem button>
+                <ListItemText primary='Add bar' />
+              </ListItem>
+            </Link>
           </List>
         </Drawer>
       </React.Fragment>
