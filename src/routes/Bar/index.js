@@ -41,7 +41,7 @@ const styles = theme => ({
         }),
     },
     expandOpen: {
-        transform: 'rotate(180deg)',
+        transform: 'rotate(360deg)',
     },
     avatar: {
         color: '#212529',
@@ -84,7 +84,7 @@ class BarCard extends React.Component {
         const { rating } = this.state;
         const { rating2 } = this.state;
         const { rating3 } = this.state;
-        const  ratingSum  = Math.round((rating  +  rating2  +  rating3 ) / 3)
+        const ratingSum = Math.round((rating + rating2 + rating3) / 3)
         console.log(ratingSum)
 
         return (
@@ -111,22 +111,31 @@ class BarCard extends React.Component {
                         >
                         </CardMedia>
                         <CardContent>
-                            <Typography
+                        <Typography
                                 component="p"
                                 style={{ color: '#fed136' }}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada bibendum nibh ac rutrum. In ullamcorper ullamcorper augue, ac imperdiet nulla dignissim in.
+                                Piwo A
+                                <hr></hr>
                             </Typography>
-                            {/* <hr></hr>
                             <Typography
                                 component="p"
                                 style={{ color: '#fed136' }}>
-                                Integer et sodales nibh. Proin tincidunt nunc ac turpis lacinia, et placerat massa cursus. Vivamus efficitur urna et neque dignissim tincidunt.
-                            </Typography> */}
+                                Piwo B
+                                <hr></hr>
+                            </Typography>
+                            <Typography
+                                component="p"
+                                style={{ color: '#fed136' }}>
+                                Piwo C
+                                <hr></hr>
+                            </Typography>
                         </CardContent>
                         <CardActions
                             className={classes.actions}
                             disableActionSpacing>
-                            <IconButton aria-label="Add to favorites" style={{ color: 'red' }}>
+                            <IconButton
+                                aria-label="Add to favorites"
+                                style={{ color: 'red' }}>
                                 <FavoriteBorderIcon />
                             </IconButton>
                             <IconButton
@@ -141,10 +150,13 @@ class BarCard extends React.Component {
                                 })}
                                 onClick={this.handleExpandClick}
                                 aria-expanded={this.state.expanded}
-                                aria-label="Show more"
-                            >
+                                aria-label="Show more">
                                 <ExpandMoreIcon style={{ color: '#fed136' }} />
                             </IconButton>
+                            <Typography
+                                style={{ color: '#fed136' }}>
+                                Oceń
+                                </Typography>
                         </CardActions>
                         <Collapse
                             in={this.state.expanded}
@@ -154,13 +166,8 @@ class BarCard extends React.Component {
                                 <Typography
                                     paragraph
                                     style={{ color: '#fed136' }}>
-                                    Oceń:
-                                </Typography>
-                                <Typography
-                                    paragraph
-                                    style={{ color: '#fed136' }}>
                                     <div className="rating-stars">
-                                        Wystrój : 
+                                        Wystrój :
                                     <StarRatingComponent
                                             name='rate'
                                             starCount={5}
@@ -170,7 +177,7 @@ class BarCard extends React.Component {
                                             onStarClick={this.onStarClick} />
                                     </div>
                                     <div className="rating-stars">
-                                        Obsługa : 
+                                        Obsługa :
                                     <StarRatingComponent
                                             renderStarIcon={() => <span>#</span>}
                                             name="rate2"
@@ -181,7 +188,7 @@ class BarCard extends React.Component {
                                             onStarClick={this.onHashClick} />
                                     </div>
                                     <div className="rating-stars">
-                                        Ceny  : 
+                                        Ceny  :
                                     <StarRatingComponent
                                             renderStarIcon={() => <span>@</span>}
                                             name="rate3"
