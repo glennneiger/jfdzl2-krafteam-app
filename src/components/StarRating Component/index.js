@@ -5,32 +5,33 @@ import StarRatingComponent from 'react-star-rating-component';
 import './style.css'
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
+    onStarClick = this.onStarClick.bind(this)
     this.state = {
       rating: 1
     };
   }
 
-  onStarClick(nextValue, prevValue, name) {
-    this.setState({rating: nextValue});
-  }
+  // onStarClick(nextValue, prevValue, name) {
+  //   this.setState({ rating: nextValue });
+  // }
 
   render() {
     const { rating } = this.state;
-    
-    return (                
+
+    return (
       <div>
         <h2>Rating from state: {rating}</h2>
         <div className="rating-stars">
-            <StarRatingComponent 
-            name="rate1" 
+          <StarRatingComponent
+            name="rate1"
             starCount={5}
             value={rating}
-            starColor={'#fed136'}
-            onStarClick={this.onStarClick.bind(this)}
-            />
+            starColor="#fed136"
+            onStarClick={this.onStarClick}
+          />
         </div>
       </div>
     );
@@ -38,6 +39,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <App />, 
+  <App />,
   document.getElementById('app')
 );
