@@ -50,50 +50,73 @@ export const barListData = [
   { name: 'BAR 05', location: 'lublin 555', rank: '1', link: 'www.bar05', image: bar05, title: 'driver' },
 ];
 
-function TitlebarGridList(props) {
-  const { classes } = props;
+class TitlebarGridList extends React.Component {
 
-  return (
-    <div className={classes.root}>
-      <GridList
-        className={classes.gridList}
-        cellHeight={'250'}
-      >
-        <GridListTile
-          className={classes.palettePrimary}
-          key="Subheader"
-          cols={2}
-          style={{ height: 'auto' }}
+  state = {
+    places: []
+  }
+
+  componentDidMount() {
+    fetch('https://jfdzl2-krafteam.firebaseio.com/places.json')
+    .then(response => response.json())
+    .then(data => {
+      const places = [];
+      Object.entries(data).forEach(elem => {
+        const place = {
+          id: elem[0],
+          ...elem[1]
+        }
+        places.push(place);
+      });
+      this.setState({ places: places }); // this.setState({ places });
+    })
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.root}>
+        <GridList
+          className={classes.gridList}
+          cellHeight={'250'}
         >
-          <ListSubheader style={{ color: '#fed136' }} component="div">Lista Barów</ListSubheader>
-        </GridListTile>
-        {barListData.map((tile, index) => (
-          <GridListTile className={classes.palettePrimary} key={tile.id}>
-            <Link to={`/bar/${index}`}><img
-              src={tile.image}
-              alt={tile.title}
-              style={{ width: '100%' }}
-            />
-            </Link>
-            <GridListTileBar
-              title={tile.name}
-              subtitle={<span>address: {tile.location}</span>}
-              style={{ color: '#fed136' }}
-              actionIcon={
-                <IconButton className={classes.icon}>
-                  <StarIcon />
-                  <StarIcon />
-                  <StarBorderIcon />
-                  <StarBorderIcon />
-                  <StarBorderIcon />
-                </IconButton>
-              }
-            />
+          <GridListTile
+            className={classes.palettePrimary}
+            key="Subheader"
+            cols={2}
+            style={{ height: 'auto' }}
+          >
+            <ListSubheader style={{ color: '#fed136' }} component="div">Lista Barów</ListSubheader>
           </GridListTile>
-        ))}
-      </GridList>
-    </div>
-  );
+          {this.state.places.map((tile, index) => (
+            <GridListTile className={classes.palettePrimary} key={tile.id}>
+              <Link to={`/bar/${index}`}><img
+                src={tile.image}
+                alt={tile.name}
+                style={{ width: '100%' }}
+              />
+              </Link>
+              <GridListTileBar
+                title={tile.name}
+                subtitle={<span>address: {tile.address}</span>}
+                style={{ color: '#fed136' }}
+                actionIcon={
+                  <IconButton className={classes.icon}>
+                    <StarIcon />
+                    <StarIcon />
+                    <StarBorderIcon />
+                    <StarBorderIcon />
+                    <StarBorderIcon />
+                  </IconButton>
+                }
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+    );
+  }
 }
 
 TitlebarGridList.propTypes = {
