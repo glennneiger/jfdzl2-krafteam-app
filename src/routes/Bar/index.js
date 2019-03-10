@@ -66,31 +66,54 @@ class BarCard extends React.Component {
 
     onStarClick = (nextValue, prevValue, name) => {
         console.log(nextValue, prevValue, name);
-        this.setState({ theBar: {
-            ...this.state.theBar,
-            rating1: nextValue
-        }}, () => {
+        this.setState({
+            theBar: {
+                ...this.state.theBar,
+                rating1: nextValue
+            }
+        }, () => {
             const id = this.props.match.params.id;
+            const newSum = this.state.theBar.rating1Sum + nextValue;
+            const newCount = this.state.theBar.rating1Count + 1;
             db.ref(`/places/${id}`).set({
                 ...this.state.theBar,
-                rating1Sum: this.state.theBar.rating1Sum + nextValue,
-                rating1Count: this.state.theBar.rating1Count + 1,
+                rating1: Math.round(newSum / newCount),
+                rating1Sum: newSum,
+                rating1Count: newCount,
             });
         });
     }
     onHashClick = (nextValue, prevValue, name) => {
         console.log(nextValue, prevValue, name);
-        this.setState({ theBar: {
-            ...this.state.theBar,
-            rating2: nextValue
-        } });
+        this.setState({
+            theBar: {
+                ...this.state.theBar,
+                rating2: nextValue
+            }
+        }, () => {
+            const id = this.props.match.params.id;
+            db.ref(`/places/${id}`).set({
+                ...this.state.theBar,
+                rating2Sum: this.state.theBar.rating2Sum + nextValue,
+                rating2Count: this.state.theBar.rating2Count + 1,
+            });
+        });
     }
     onAtClick = (nextValue, prevValue, name) => {
         console.log(nextValue, prevValue, name);
-        this.setState({ theBar: {
-            ...this.state.theBar,
-            rating3: nextValue
-        } });
+        this.setState({
+            theBar: {
+                ...this.state.theBar,
+                rating3: nextValue
+            }
+        }, () => {
+            const id = this.props.match.params.id;
+            db.ref(`/places/${id}`).set({
+                ...this.state.theBar,
+                rating3Sum: this.state.theBar.rating3Sum + nextValue,
+                rating3Count: this.state.theBar.rating3Count + 1,
+            });
+        });
     }
 
 
@@ -142,7 +165,7 @@ class BarCard extends React.Component {
                         >
                         </CardMedia>
                         <CardContent>
-                        <Typography
+                            <Typography
                                 component="p"
                                 style={{ color: '#fed136' }}>
                                 Piwo A
@@ -184,25 +207,18 @@ class BarCard extends React.Component {
                                 aria-label="Show more">
                                 <ExpandMoreIcon style={{ color: '#fed136' }} />
                             </IconButton>
-                            <Typography
-                                style={{ color: '#fed136' }}>
                                 Oceń
-                                </Typography>
                         </CardActions>
                         <Collapse
                             in={this.state.expanded}
                             timeout="auto"
                             unmountOnExit>
                             <CardContent>
-                                <Typography
-                                    paragraph
-                                    style={{ color: '#fed136' }}>
                                     <div className="rating-stars">
                                         Wystrój :
                                     <StarRatingComponent
                                             name='rate'
                                             starCount={5}
-                                            value={rating1}
                                             emptyStarColor={'#fed13640'}
                                             starColor={'#fed136'}
                                             onStarClick={this.onStarClick} />
@@ -229,7 +245,6 @@ class BarCard extends React.Component {
                                             starColor={'#fed136'}
                                             onStarClick={this.onAtClick} />
                                     </div>
-                                </Typography>
                             </CardContent>
                         </Collapse>
                     </div>
