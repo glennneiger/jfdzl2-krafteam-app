@@ -1,0 +1,53 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.textFieldContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #212529;
+    padding: 100px;
+
+   position: relative;
+    
+}
+
+@media (max-width: 800px) {
+    .textFieldContainer{
+        padding: 20px;
+        
+    }   
+    .formContainer{
+        width: 100%;
+    }
+}
+
+    .textFieldContainer fieldset{
+        border-color: #fed136 !important;
+    }
+
+    .textFieldContainer label, 
+    .textFieldContainer input{
+       color: #fed136 !important;
+       /* background-color: #fed136; */
+    }
+
+    .buttonsContainer{
+        display: flex;
+        justify-content: space-around;
+        margin: 5%;
+    }
+
+    .MuiButton-outlinedPrimary-104 {
+        color: #fed136 !important;
+        border: 1px solid #fed136 !important;
+    }
