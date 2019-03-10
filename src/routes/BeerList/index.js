@@ -24,10 +24,10 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
   },
   card: {
-    maxWidth: 345,
+    maxWidth: 600,
   },
   media: {
-    height: 140,
+    height: 200,
   },
 
 });
@@ -46,102 +46,102 @@ function BeerList(props) {
   return (
     <Card className={classes.card}>
         <Grid container spacing={24}>
-        <Grid item xs={6}>
-            <Paper className={classes.paper}>
-                <CardActionArea>
-                    <CardMedia
-                    className={classes.media}
-                    image="http://bi.gazeta.pl/im/ca/92/e7/z15176394V,Piwo-to-najstarszy-i-najczesciej-spozywany-napoj-a.jpg"
-                    title="Beer 1"
-                    />
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        Beer 1
-                    </Typography>
-                    <Typography component="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu dolor eget sem auctor luctus sit amet sed dui. Sed.
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <IconButton aria-label="Add to favorites">
-                        <FavoriteIcon />
-                    </IconButton>
-                </CardActions>
-            </Paper>
-        </Grid>
-        <Grid item xs={6}>
-            <Paper className={classes.paper}>
-                <CardActionArea>
-                    <CardMedia
-                    className={classes.media}
-                    image="http://bi.gazeta.pl/im/ca/92/e7/z15176394V,Piwo-to-najstarszy-i-najczesciej-spozywany-napoj-a.jpg"
-                    title="Beer 2"
-                    />
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        Beer 2
-                    </Typography>
-                    <Typography component="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu dolor eget sem auctor luctus sit amet sed dui. Sed.
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <IconButton aria-label="Add to favorites">
-                        <FavoriteIcon />
-                    </IconButton>
-                </CardActions>
-            </Paper>
-        </Grid>
-        <Grid item xs={6}>
-            <Paper className={classes.paper}>
-                <CardActionArea>
-                    <CardMedia
-                    className={classes.media}
-                    image="http://bi.gazeta.pl/im/ca/92/e7/z15176394V,Piwo-to-najstarszy-i-najczesciej-spozywany-napoj-a.jpg"
-                    title="Beer 3"
-                    />
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        Beer 3
-                    </Typography>
-                    <Typography component="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu dolor eget sem auctor luctus sit amet sed dui. Sed.
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <IconButton aria-label="Add to favorites">
-                        <FavoriteIcon />
-                    </IconButton>
-                </CardActions>
-            </Paper>
-        </Grid>
-        <Grid item xs={6}>
-            <Paper className={classes.paper}>
-                <CardActionArea>
-                    <CardMedia
-                    className={classes.media}
-                    image="http://bi.gazeta.pl/im/ca/92/e7/z15176394V,Piwo-to-najstarszy-i-najczesciej-spozywany-napoj-a.jpg"
-                    title="Beer 4"
-                    />
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        Beer 4
-                    </Typography>
-                    <Typography component="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu dolor eget sem auctor luctus sit amet sed dui. Sed.
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <IconButton aria-label="Add to favorites">
-                        <FavoriteIcon />
-                    </IconButton>
-                </CardActions>
-            </Paper>
-        </Grid>
+            <Grid item xs={6}>
+                <Paper className={classes.paper}>
+                    <CardActionArea>
+                        <CardMedia
+                        className={classes.media}
+                        image="http://bi.gazeta.pl/im/ca/92/e7/z15176394V,Piwo-to-najstarszy-i-najczesciej-spozywany-napoj-a.jpg"
+                        title="Beer 1"
+                        />
+                        <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            Beer 1
+                        </Typography>
+                        <Typography component="p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu dolor eget sem auctor luctus sit amet sed dui. Sed.
+                        </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <IconButton aria-label="Add to favorites">
+                            <FavoriteIcon />
+                        </IconButton>
+                    </CardActions>
+                </Paper>
+            </Grid>
+            <Grid item xs={6}>
+                <Paper className={classes.paper}>
+                    <CardActionArea>
+                        <CardMedia
+                        className={classes.media}
+                        image="http://bi.gazeta.pl/im/ca/92/e7/z15176394V,Piwo-to-najstarszy-i-najczesciej-spozywany-napoj-a.jpg"
+                        title="Beer 2"
+                        />
+                        <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            Beer 2
+                        </Typography>
+                        <Typography component="p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu dolor eget sem auctor luctus sit amet sed dui. Sed.
+                        </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <IconButton aria-label="Add to favorites">
+                            <FavoriteIcon />
+                        </IconButton>
+                    </CardActions>
+                </Paper>
+            </Grid>
+            <Grid item xs={6}>
+                <Paper className={classes.paper}>
+                    <CardActionArea>
+                        <CardMedia
+                        className={classes.media}
+                        image="http://bi.gazeta.pl/im/ca/92/e7/z15176394V,Piwo-to-najstarszy-i-najczesciej-spozywany-napoj-a.jpg"
+                        title="Beer 3"
+                        />
+                        <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            Beer 3
+                        </Typography>
+                        <Typography component="p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu dolor eget sem auctor luctus sit amet sed dui. Sed.
+                        </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <IconButton aria-label="Add to favorites">
+                            <FavoriteIcon />
+                        </IconButton>
+                    </CardActions>
+                </Paper>
+            </Grid>
+            <Grid item xs={6}>
+                <Paper className={classes.paper}>
+                    <CardActionArea>
+                        <CardMedia
+                        className={classes.media}
+                        image="http://bi.gazeta.pl/im/ca/92/e7/z15176394V,Piwo-to-najstarszy-i-najczesciej-spozywany-napoj-a.jpg"
+                        title="Beer 4"
+                        />
+                        <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            Beer 4
+                        </Typography>
+                        <Typography component="p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu dolor eget sem auctor luctus sit amet sed dui. Sed.
+                        </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <IconButton aria-label="Add to favorites">
+                            <FavoriteIcon />
+                        </IconButton>
+                    </CardActions>
+                </Paper>
+            </Grid>
         </Grid>
     </Card>
 
