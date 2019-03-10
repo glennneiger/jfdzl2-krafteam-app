@@ -14,12 +14,12 @@ const beer = {
     'Kraft'
   ],
   datasets: [{
-    data: [600, 200, 300, 500],
+    data: [100, 200, 300, 500],
     backgroundColor: [
-      '#FF6384',
-      '#36A2EB',
-      '#FFCE56',
-      '#EACe54'
+      '#b453f9',
+      '#f95353',
+      '#f4e46b',
+      '#448437'
     ],
     hoverBackgroundColor: [
       '#FF6384',
@@ -42,7 +42,7 @@ const venue = {
     'lokal4'
   ],
   datasets: [{
-    data: [600, 200, 300, 500],
+    data: [200, 500, 500, 200],
     backgroundColor: [
       '#FF6384',
       '#36A2EB',
