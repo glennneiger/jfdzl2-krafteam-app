@@ -9,6 +9,7 @@ import Login from './routes/Login'
 import BeerList from './routes/BeerList'
 import BarCard from './routes/Bar'
 import Rank from './routes/Rank/';
+import AddPlace from './routes/AddPlace';
 
 import './styles.css'
 import 'normalize.css';
@@ -22,14 +23,13 @@ class App extends Component {
                     <Route exact path='/' component={Main} />
                     <Route path='/bar-list' component={BarList} />
                     <Route path='/bar/:id' component={BarCard} />
-                    <Route path='/login' component={Login}/> 
+                    <Route path='/login' component={Login}/>
                     <Route path='/beer-list' component={BeerList} />
+                    <Route path='/add-bar' component={AddPlace} />
 
                     <BottomBar />
 
                     <Route path='/ranking' component={Rank} />
-                    {/* <BottomBar /> */}
-
                 </div>
             </Router>
         );

@@ -19,6 +19,8 @@ import bar05 from '../Tiles/sand.jpg'
 import bar06 from '../Tiles/panties.jpg'
 import bar07 from '../Tiles/sand.jpg'
 
+import { db } from '../../firebase';
+
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -61,19 +63,32 @@ class TitlebarGridList extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://jfdzl2-krafteam.firebaseio.com/places.json')
-    .then(response => response.json())
-    .then(data => {
+
+    db.ref('/places/').on('value', (snapshot) => {
       const places = [];
-      Object.entries(data).forEach(elem => {
-        const place = {
-          id: elem[0],
-          ...elem[1]
+      Object.entries(snapshot.val()).forEach(e => {
+        const bar = {
+          id: e[0],
+          ...e[1]
         }
-        places.push(place);
-      });
-      this.setState({ places: places }); // this.setState({ places });
+        places.push(bar);
+      })
+      this.setState({ places });
     })
+
+    // fetch('https://jfdzl2-krafteam.firebaseio.com/places.json')
+    // .then(response => response.json())
+    // .then(data => {
+    //   const places = [];
+    //   Object.entries(data).forEach(elem => {
+    //     const place = {
+    //       id: elem[0],
+    //       ...elem[1]
+    //     }
+    //     places.push(place);
+    //   });
+    //   this.setState({ places: places }); // this.setState({ places });
+    // })
   }
 
   render() {
