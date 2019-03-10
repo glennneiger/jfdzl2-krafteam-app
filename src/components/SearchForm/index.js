@@ -15,8 +15,12 @@ const styles = {
 
 
 class SearchForm extends Component {
-    render() {
 
+    state = {
+
+    }
+
+    render() {
         return (
             <div className="search-container">
                 <h2>Search</h2>

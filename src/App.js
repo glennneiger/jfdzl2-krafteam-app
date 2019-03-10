@@ -20,7 +20,7 @@ class App extends Component {
             <Router>
                 <div>
                     <NavBar />
-                    <div style={{padding: '64px 64px'}}>
+                    <div style={{paddingTop: '63px', paddingBottom: '56px'}}>
                         <Route exact path='/' component={Main} />
                         <Route path='/bar-list' component={BarList} />
                         <Route path='/bar/:id' component={BarCard} />
