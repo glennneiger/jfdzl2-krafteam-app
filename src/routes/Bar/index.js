@@ -18,7 +18,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarRatingComponent from 'react-star-rating-component';
 
-
+import { db } from '../../firebase';
 import { barListData } from '../../components/GridList'
 
 const styles = theme => ({
@@ -57,7 +57,7 @@ const styles = theme => ({
 });
 
 class BarCard extends React.Component {
-    state = { expanded: false };
+    state = { expanded: true, theBar: null, rating: 0 };
     // state = { expanded: true };
 
     handleExpandClick = () => {
@@ -66,26 +66,57 @@ class BarCard extends React.Component {
 
     onStarClick = (nextValue, prevValue, name) => {
         console.log(nextValue, prevValue, name);
-        this.setState({ rating: nextValue });
-        // this.setState({ rating2: nextValue });
+        this.setState({ theBar: {
+            ...this.state.theBar,
+            rating1: nextValue
+        }}, () => {
+            const id = this.props.match.params.id;
+            db.ref(`/places/${id}`).set({
+                ...this.state.theBar,
+                rating1Sum: this.state.theBar.rating1Sum + nextValue,
+                rating1Count: this.state.theBar.rating1Count + 1,
+            });
+        });
     }
     onHashClick = (nextValue, prevValue, name) => {
         console.log(nextValue, prevValue, name);
-        this.setState({ rating2: nextValue });
+        this.setState({ theBar: {
+            ...this.state.theBar,
+            rating2: nextValue
+        } });
     }
     onAtClick = (nextValue, prevValue, name) => {
         console.log(nextValue, prevValue, name);
-        this.setState({ rating3: nextValue });
+        this.setState({ theBar: {
+            ...this.state.theBar,
+            rating3: nextValue
+        } });
     }
+
+
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        db.ref(`/places/${id}`).on('value', (snapshot) => {
+            const bar = snapshot.val();
+            const ratingSum = Math.round((parseInt(bar.rating1) + parseInt(bar.rating2) + parseInt(bar.rating3)) / 3);
+            this.setState({ theBar: bar, rating: ratingSum })
+        });
+    }
+
 
     render() {
         const { classes } = this.props;
-        const theBar = barListData[this.props.match.params.id]
-        const { rating } = this.state;
-        const { rating2 } = this.state;
-        const { rating3 } = this.state;
-        const ratingSum = Math.round((rating + rating2 + rating3) / 3)
-        console.log(ratingSum)
+        const theBar = this.state.theBar;
+        if (!theBar) {
+            return <div>Loading...</div>
+        }
+
+        const { rating1 } = theBar;
+        const { rating2 } = theBar;
+        const { rating3 } = theBar;
+        const rating = this.state.rating;
+        console.log(rating)
+
 
         return (
             <div style={{ backgroundColor: '#fed136' }}>
@@ -96,7 +127,7 @@ class BarCard extends React.Component {
                                 <Avatar
                                     aria-label="Bar"
                                     className={classes.avatar}>
-                                    {(ratingSum)}
+                                    {(rating)}
                                 </Avatar>
                             }
                             title={
@@ -171,7 +202,7 @@ class BarCard extends React.Component {
                                     <StarRatingComponent
                                             name='rate'
                                             starCount={5}
-                                            value={rating}
+                                            value={rating1}
                                             emptyStarColor={'#fed13640'}
                                             starColor={'#fed136'}
                                             onStarClick={this.onStarClick} />

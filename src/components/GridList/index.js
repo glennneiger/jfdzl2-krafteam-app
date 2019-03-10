@@ -110,7 +110,7 @@ class TitlebarGridList extends React.Component {
           </GridListTile>
           {this.state.places.map((tile, index) => (
             <GridListTile className={classes.palettePrimary} key={tile.id}>
-              <Link to={`/bar/${index}`}><img
+              <Link to={`/bar/${tile.id}`}><img
                 src={tile.image}
                 alt={tile.name}
                 style={{ width: '100%' }}
