@@ -102,7 +102,7 @@ class BarCard extends React.Component {
                             title={
                                 <span style={{ color: '#fed136' }}>{theBar.name}</span>}
                             subheader={
-                                <span style={{ color: '#fed136' }}>address: {theBar.location}, <a href={theBar.link}>website</a></span>}
+                                <span style={{ color: '#fed136' }}>adres: {theBar.location}, <a href={theBar.link}>website</a></span>}
 
                         />
                         <CardMedia

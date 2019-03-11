@@ -103,7 +103,7 @@ class TitlebarGridList extends React.Component {
               </Link>
               <GridListTileBar
                 title={tile.name}
-                subtitle={<span>address: {tile.address}</span>}
+                subtitle={<span>adres: {tile.city}</span>}
                 style={{ color: '#fed136' }}
                 actionIcon={
                   <IconButton className={classes.icon}>
