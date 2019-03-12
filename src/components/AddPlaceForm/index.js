@@ -19,7 +19,18 @@ class AddPlaceForm extends Component {
         name: '',
         description: '',
         address: '',
-        image: ''
+        image: '',
+        city: '',
+        rating1: 0,
+        rating1Count: 0,
+        rating1Sum: 0,
+        rating2: 0,
+        rating2Count: 0,
+        rating2Sum: 0,
+        rating3: 0,
+        rating3Count: 0,
+        rating3Sum: 0,
+        website: ""
     }
 
     handleChange = event => {
