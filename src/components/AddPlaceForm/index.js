@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { withRouter } from 'react-router-dom'
 
 const styles = {
     textField: {
@@ -31,6 +32,7 @@ class AddPlaceForm extends Component {
             body: JSON.stringify(this.state)
         })
             .then(response => response.json())
+            .then(() => this.props.history.push('/bar-list'))
     }
 
     render() {
@@ -73,4 +75,4 @@ class AddPlaceForm extends Component {
     }
 }
 
-export default AddPlaceForm;
+export default withRouter(AddPlaceForm);
