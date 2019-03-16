@@ -19,7 +19,8 @@ class BarCreate extends React.Component {
     })
         .then(response => response.json())
         .then(data => {
-      this.props.history.push(`/bar/${data.name}`);
+      this.props.history.push(`/bar-list`);
+      // this.props.history.push(`/bar/${data.name}`);
     });
   }
 
