@@ -4,12 +4,24 @@ import Button from '@material-ui/core/Button';
 import { withRouter } from 'react-router-dom'
 
 const styles = {
+    title: {
+        marginTop: 30,
+        textAlign: 'center'
+    },
     textField: {
         margin: 10,
     },
     searchForm: {
         display: 'flex',
-        alignSelf: 'center'
+        justifyContent: 'space-between'
+    },
+    button: {
+        margin: 10,
+    },
+    formContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        margin: 20
     }
 }
 
@@ -20,7 +32,7 @@ class AddPlaceForm extends Component {
         description: '',
         address: '',
         image: 'https://cdn2.iconfinder.com/data/icons/disco-pub-night-club-party/474/disco-night-club-001-512.png',
-        city: '',
+        city: 'Lublin',
         rating1: 0,
         rating1Count: 0,
         rating1Sum: 0,
@@ -49,38 +61,40 @@ class AddPlaceForm extends Component {
     render() {
         return (
             <div>
-                <h2>Add new place</h2>
-                <form style={styles.searchForm}>
-                    <TextField style={styles.textField}
-                        id="name"
-                        label="Bar name"
-                        margin="normal"
-                        variant="outlined"
-                        onChange={this.handleChange}
-                    />
-                    <TextField style={styles.textField}
-                        id="description"
-                        label="Description"
-                        margin="normal"
-                        variant="outlined"
-                        onChange={this.handleChange}
-                    />
-                    <TextField style={styles.textField}
-                        id="address"
-                        label="Address"
-                        margin="normal"
-                        variant="outlined"
-                        onChange={this.handleChange}
-                    />
-                    <TextField style={styles.textField}
-                        id="image"
-                        label="Image URL"
-                        margin="normal"
-                        variant="outlined"
-                        onChange={this.handleChange}
-                    />
-                    <Button onClick={this.handleSubmit} style={styles.textField} color='primary' variant='outlined'> + </Button>
-                </form>
+                <h2 style={styles.title}>Add new place</h2>
+                <div style={styles.formContainer}>
+                    <form style={styles.searchForm}>
+                        <TextField style={styles.textField}
+                            id="name"
+                            label="Bar name"
+                            margin="normal"
+                            variant="outlined"
+                            onChange={this.handleChange}
+                        />
+                        <TextField style={styles.textField}
+                            id="description"
+                            label="Description"
+                            margin="normal"
+                            variant="outlined"
+                            onChange={this.handleChange}
+                        />
+                        <TextField style={styles.textField}
+                            id="address"
+                            label="Address"
+                            margin="normal"
+                            variant="outlined"
+                            onChange={this.handleChange}
+                        />
+                        <TextField style={styles.textField}
+                            id="image"
+                            label="Image URL"
+                            margin="normal"
+                            variant="outlined"
+                            onChange={this.handleChange}
+                        />
+                    </form>
+                    <Button onClick={this.handleSubmit} style={styles.button} color='primary' variant='outlined'> + Add new bar </Button>
+                </div>
             </div>
         )
     }
