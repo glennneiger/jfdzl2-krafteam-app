@@ -52,6 +52,7 @@ const styles = theme => ({
         backgroundColor: '#212529',
         color: '#fed136 !important',
         border: '#fed136 1px solid',
+        // border: '#fff 1px solid',
         borderRadius: 3
     }
 
@@ -149,7 +150,7 @@ class BarCard extends React.Component {
 
 
         return (
-            <div style={{ backgroundColor: '#fed136' }}>
+            <div>
                 <Card className={classes.card}>
                     <div className={classes.palettePrimary}>
                         <CardHeader

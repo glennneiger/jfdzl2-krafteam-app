@@ -19,7 +19,7 @@ class AddPlaceForm extends Component {
         name: '',
         description: '',
         address: '',
-        image: '',
+        image: 'https://cdn2.iconfinder.com/data/icons/disco-pub-night-club-party/474/disco-night-club-001-512.png',
         city: '',
         rating1: 0,
         rating1Count: 0,
@@ -30,7 +30,7 @@ class AddPlaceForm extends Component {
         rating3: 0,
         rating3Count: 0,
         rating3Sum: 0,
-        website: ""
+        website: ''
     }
 
     handleChange = event => {
