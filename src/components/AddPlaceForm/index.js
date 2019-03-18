@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withRouter } from 'react-router-dom'
+import { db } from '../../firebase';
+
 
 const styles = {
     title: {
@@ -42,7 +44,7 @@ class AddPlaceForm extends Component {
         rating3: 0,
         rating3Count: 0,
         rating3Sum: 0,
-        website: ''
+        website: '###'
     }
 
     handleChange = event => {
@@ -50,12 +52,15 @@ class AddPlaceForm extends Component {
     }
 
     handleSubmit = event => {
-        fetch('https://jfdzl2-krafteam.firebaseio.com/places.json', {
-            method: 'POST',
-            body: JSON.stringify(this.state)
-        })
-            .then(response => response.json())
-            .then(() => this.props.history.push('/bar-list'))
+        // fetch('https://jfdzl2-krafteam.firebaseio.com/places.json', {
+        //     method: 'POST',
+        //     body: JSON.stringify(this.state)
+        // })
+        //     .then(response => response.json())
+        //     .then(() => this.props.history.push('/bar-list'))
+        const bar = this.state;
+        db.ref('/places').push(bar);
+        this.props.history.push('/bar-list')
     }
 
     render() {
@@ -81,6 +86,13 @@ class AddPlaceForm extends Component {
                         <TextField style={styles.textField}
                             id="address"
                             label="Address"
+                            margin="normal"
+                            variant="outlined"
+                            onChange={this.handleChange}
+                        />
+                        <TextField style={styles.textField}
+                            id="city"
+                            label="City"
                             margin="normal"
                             variant="outlined"
                             onChange={this.handleChange}
