@@ -18,7 +18,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarRatingComponent from 'react-star-rating-component';
 
-
+import { db } from '../../firebase';
 import { barListData } from '../../components/GridList'
 
 const styles = theme => ({
@@ -46,18 +46,20 @@ const styles = theme => ({
     avatar: {
         color: '#212529',
         backgroundColor: '#fed136',
+        border: '#212529 1px solid',
     },
     palettePrimary: {
         backgroundColor: '#212529',
         color: '#fed136 !important',
         border: '#fed136 1px solid',
+        // border: '#fff 1px solid',
         borderRadius: 3
     }
 
 });
 
 class BarCard extends React.Component {
-    state = { expanded: false };
+    state = { expanded: true, theBar: null, rating: 0 };
     // state = { expanded: true };
 
     handleExpandClick = () => {
@@ -66,29 +68,89 @@ class BarCard extends React.Component {
 
     onStarClick = (nextValue, prevValue, name) => {
         console.log(nextValue, prevValue, name);
-        this.setState({ rating: nextValue });
-        // this.setState({ rating2: nextValue });
+        this.setState({
+            theBar: {
+                ...this.state.theBar,
+                rating1: nextValue
+            }
+        }, () => {
+            const id = this.props.match.params.id;
+            const newSum = this.state.theBar.rating1Sum + nextValue;
+            const newCount = this.state.theBar.rating1Count + 1;
+            db.ref(`/places/${id}`).set({
+                ...this.state.theBar,
+                rating1: Math.round(newSum / newCount),
+                rating1Sum: newSum,
+                rating1Count: newCount,
+            });
+        });
     }
     onHashClick = (nextValue, prevValue, name) => {
         console.log(nextValue, prevValue, name);
-        this.setState({ rating2: nextValue });
+        this.setState({
+            theBar: {
+                ...this.state.theBar,
+                rating2: nextValue
+            }
+        }, () => {
+            const id = this.props.match.params.id;
+            const newSum = this.state.theBar.rating2Sum + nextValue;
+            const newCount = this.state.theBar.rating2Count + 1;
+            db.ref(`/places/${id}`).set({
+                ...this.state.theBar,
+                rating2: Math.round(newSum / newCount),
+                rating2Sum: newSum,
+                rating2Count: newCount,
+            });
+        });
     }
     onAtClick = (nextValue, prevValue, name) => {
         console.log(nextValue, prevValue, name);
-        this.setState({ rating3: nextValue });
+        this.setState({
+            theBar: {
+                ...this.state.theBar,
+                rating3: nextValue
+            }
+        }, () => {
+            const id = this.props.match.params.id;
+            const newSum = this.state.theBar.rating3Sum + nextValue;
+            const newCount = this.state.theBar.rating3Count + 1;
+            db.ref(`/places/${id}`).set({
+                ...this.state.theBar,
+                rating3: Math.round(newSum / newCount),
+                rating3Sum: newSum,
+                rating3Count: newCount,
+            });
+        });
     }
+
+
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        db.ref(`/places/${id}`).on('value', (snapshot) => {
+            const bar = snapshot.val();
+            const ratingSum = Math.round((parseInt(bar.rating1) + parseInt(bar.rating2) + parseInt(bar.rating3)) / 3);
+            this.setState({ theBar: bar, rating: ratingSum })
+        });
+    }
+
 
     render() {
         const { classes } = this.props;
-        const theBar = barListData[this.props.match.params.id]
-        const { rating } = this.state;
-        const { rating2 } = this.state;
-        const { rating3 } = this.state;
-        const ratingSum = Math.round((rating + rating2 + rating3) / 3)
-        console.log(ratingSum)
+        const theBar = this.state.theBar;
+        if (!theBar) {
+            return <div>Loading...</div>
+        }
+
+        const { rating1 } = theBar;
+        const { rating2 } = theBar;
+        const { rating3 } = theBar;
+        const barRank = this.state.rating;
+        console.log(barRank)
+
 
         return (
-            <div style={{ backgroundColor: '#fed136' }}>
+            <div>
                 <Card className={classes.card}>
                     <div className={classes.palettePrimary}>
                         <CardHeader
@@ -96,13 +158,13 @@ class BarCard extends React.Component {
                                 <Avatar
                                     aria-label="Bar"
                                     className={classes.avatar}>
-                                    {(ratingSum)}
+                                    {(barRank)}
                                 </Avatar>
                             }
                             title={
                                 <span style={{ color: '#fed136' }}>{theBar.name}</span>}
                             subheader={
-                                <span style={{ color: '#fed136' }}>address: {theBar.location}, <a href={theBar.link}>website</a></span>}
+                            <span style={{ color: '#fed136' }}>{theBar.address}, {theBar.city}, <a href={theBar.website}>{theBar.website}</a></span>}
 
                         />
                         <CardMedia
@@ -111,23 +173,20 @@ class BarCard extends React.Component {
                         >
                         </CardMedia>
                         <CardContent>
-                        <Typography
+                            <Typography
                                 component="p"
-                                style={{ color: '#fed136' }}>
+                                className={classes.avatar}>
                                 Piwo A
-                                <hr></hr>
                             </Typography>
                             <Typography
                                 component="p"
-                                style={{ color: '#fed136' }}>
+                                className={classes.avatar}>
                                 Piwo B
-                                <hr></hr>
                             </Typography>
                             <Typography
                                 component="p"
-                                style={{ color: '#fed136' }}>
+                                className={classes.avatar}>
                                 Piwo C
-                                <hr></hr>
                             </Typography>
                         </CardContent>
                         <CardActions
@@ -153,52 +212,45 @@ class BarCard extends React.Component {
                                 aria-label="Show more">
                                 <ExpandMoreIcon style={{ color: '#fed136' }} />
                             </IconButton>
-                            <Typography
-                                style={{ color: '#fed136' }}>
-                                Oceń
-                                </Typography>
+                            Oceń
                         </CardActions>
                         <Collapse
                             in={this.state.expanded}
                             timeout="auto"
                             unmountOnExit>
                             <CardContent>
-                                <Typography
-                                    paragraph
-                                    style={{ color: '#fed136' }}>
-                                    <div className="rating-stars">
-                                        Wystrój :
+                                <div className="rating-stars">
+                                    Wystrój :
                                     <StarRatingComponent
-                                            name='rate'
-                                            starCount={5}
-                                            value={rating}
-                                            emptyStarColor={'#fed13640'}
-                                            starColor={'#fed136'}
-                                            onStarClick={this.onStarClick} />
-                                    </div>
-                                    <div className="rating-stars">
-                                        Obsługa :
+                                        // value={rating1}
+                                        name='rate'
+                                        starCount={5}
+                                        emptyStarColor={'#fed13640'}
+                                        starColor={'#fed136'}
+                                        onStarClick={this.onStarClick} />
+                                </div>
+                                <div className="rating-stars">
+                                    Obsługa :
                                     <StarRatingComponent
-                                            renderStarIcon={() => <span>#</span>}
-                                            name="rate2"
-                                            starCount={5}
-                                            value={rating2}
-                                            emptyStarColor={'#fed13640'}
-                                            starColor={'#fed136'}
-                                            onStarClick={this.onHashClick} />
-                                    </div>
-                                    <div className="rating-stars">
-                                        Ceny  :
+                                        renderStarIcon={() => <span>#</span>}
+                                        // value={rating2}
+                                        name="rate2"
+                                        starCount={5}
+                                        emptyStarColor={'#fed13640'}
+                                        starColor={'#fed136'}
+                                        onStarClick={this.onHashClick} />
+                                </div>
+                                <div className="rating-stars">
+                                    Ceny  :
                                     <StarRatingComponent
-                                            renderStarIcon={() => <span>@</span>}
-                                            name="rate3"
-                                            starCount={5}
-                                            value={rating3}
-                                            emptyStarColor={'#fed13640'}
-                                            starColor={'#fed136'}
-                                            onStarClick={this.onAtClick} />
-                                    </div>
-                                </Typography>
+                                        renderStarIcon={() => <span>@</span>}
+                                        // value={rating3}
+                                        name="rate3"
+                                        starCount={5}
+                                        emptyStarColor={'#fed13640'}
+                                        starColor={'#fed136'}
+                                        onStarClick={this.onAtClick} />
+                                </div>
                             </CardContent>
                         </Collapse>
                     </div>

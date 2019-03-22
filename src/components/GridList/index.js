@@ -28,7 +28,7 @@ const styles = theme => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     // backgroundColor: theme.palette.background.paper,
-    backgroundColor: '#fed136',
+    // backgroundColor: '#fed136',
   },
   gridList: {
     width: 800,
@@ -41,6 +41,7 @@ const styles = theme => ({
     backgroundColor: '#212529',
     color: '#fed136',
     border: '#fed136 1px solid',
+    // border: '#fff 1px solid',
     borderRadius: 3
   }
 });
@@ -110,7 +111,8 @@ class TitlebarGridList extends React.Component {
           </GridListTile>
           {this.state.places.map((tile, index) => (
             <GridListTile className={classes.palettePrimary} key={tile.id}>
-              <Link to={`/bar/${index}`}><img
+              <Link to={`/bar/${tile.id}`}>
+              <img
                 src={tile.image}
                 alt={tile.name}
                 style={{ width: '100%' }}
@@ -118,7 +120,7 @@ class TitlebarGridList extends React.Component {
               </Link>
               <GridListTileBar
                 title={tile.name}
-                subtitle={<span>address: {tile.address}</span>}
+                subtitle={<span>adres: {tile.address}, {tile.city}</span>}
                 style={{ color: '#fed136' }}
                 actionIcon={
                   <IconButton className={classes.icon}>
