@@ -19,7 +19,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarRatingComponent from 'react-star-rating-component';
 
 import { db } from '../../firebase';
-import { barListData } from '../../components/GridList'
+// import { barListData } from '../../components/GridList'
 
 const styles = theme => ({
     card: {
