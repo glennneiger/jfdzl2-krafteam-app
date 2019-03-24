@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from '../../firebase'
-
+import {auth} from  '../../firebase'
 
 import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField';
@@ -23,7 +22,7 @@ const styles = {
     }
 };
 
-class Form extends Component {
+class Register extends Component {
     state = {
         email: '',
         password: ''
@@ -57,7 +56,7 @@ class Form extends Component {
                                     type="email"
                                     name="email"
                                     autoComplete="email"
-                                    value={this.state.email}
+                                    value = {this.state.email}
                                     margin="normal"
                                     variant="outlined"
                                     fullWidth
@@ -73,7 +72,7 @@ class Form extends Component {
                                     type="password"
                                     name="password"
                                     autoComplete="current-password"
-                                    value={this.state.password}
+                                    value = {this.state.password}
                                     margin="normal"
                                     variant="outlined"
                                     fullWidth
@@ -81,14 +80,14 @@ class Form extends Component {
                             </div>
                         </div>
                         <div className="buttonsContainer">
-                            <Button variant="outlined" color="primary" className={classes.button}>
+                           <Link to='/login'>  
+                           <Button variant="outlined" color="primary" className={classes.button}>
                                 LOG IN
                         </Button>
-                            <Link to='/register'>
-                                <Button variant="outlined" color="primary" className={classes.button}>
-                                    SIGN UP
+                        </Link>
+                            <Button variant="outlined" color="primary" className={classes.button}>
+                                SIGN IN
                         </Button>
-                            </Link>
                         </div>
                     </div>
                 </div>
@@ -97,6 +96,4 @@ class Form extends Component {
         )
     }
 }
-
-
-export default withStyles(styles)(Form);
+export default withStyles(styles)(Register)
