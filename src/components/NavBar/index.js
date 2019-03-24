@@ -60,7 +60,7 @@ class NavBar extends Component {
                 <ListItemText primary='Map' />
               </ListItem>
             </Link>
-            <Link className="link" to='/' onClick={this.toggleDrawer}>
+            <Link className="link" to='/ranking' onClick={this.toggleDrawer}>
               <ListItem button>
                 <ListItemText primary='Rank' />
               </ListItem>

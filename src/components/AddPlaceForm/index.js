@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { withRouter } from 'react-router-dom'
 import { db } from '../../firebase';
 
 
@@ -32,7 +33,18 @@ class AddPlaceForm extends Component {
         name: '',
         description: '',
         address: '',
-        image: ''
+        image: 'https://cdn2.iconfinder.com/data/icons/disco-pub-night-club-party/474/disco-night-club-001-512.png',
+        city: 'Lublin',
+        rating1: 0,
+        rating1Count: 0,
+        rating1Sum: 0,
+        rating2: 0,
+        rating2Count: 0,
+        rating2Sum: 0,
+        rating3: 0,
+        rating3Count: 0,
+        rating3Sum: 0,
+        website: '###'
     }
 
     handleChange = event => {
@@ -49,6 +61,15 @@ class AddPlaceForm extends Component {
         } else {
             console.log('fill name form');
         }
+        // fetch('https://jfdzl2-krafteam.firebaseio.com/places.json', {
+        //     method: 'POST',
+        //     body: JSON.stringify(this.state)
+        // })
+        //     .then(response => response.json())
+        //     .then(() => this.props.history.push('/bar-list'))
+        const bar = this.state;
+        db.ref('/places').push(bar);
+        this.props.history.push('/bar-list')
     }
 
     render() {
@@ -79,6 +100,13 @@ class AddPlaceForm extends Component {
                             onChange={this.handleChange}
                         />
                         <TextField style={styles.textField}
+                            id="city"
+                            label="City"
+                            margin="normal"
+                            variant="outlined"
+                            onChange={this.handleChange}
+                        />
+                        <TextField style={styles.textField}
                             id="image"
                             label="Image URL"
                             margin="normal"
@@ -93,4 +121,4 @@ class AddPlaceForm extends Component {
     }
 }
 
-export default AddPlaceForm;
+export default withRouter(AddPlaceForm);
