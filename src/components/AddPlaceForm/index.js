@@ -40,8 +40,15 @@ class AddPlaceForm extends Component {
     }
 
     handleSubmit = event => {
-        const bar = this.state;
-        db.ref('/places').push(bar);
+        if (this.state.name) {
+            const bar = this.state;
+            db.ref('/places').push(bar, function(error){
+                console.log(error)
+                console.log('new place added');
+            });
+        } else {
+            console.log('fill name form');
+        }
     }
 
     render() {

@@ -44,10 +44,13 @@ class SearchForm extends Component {
                         variant="outlined"
                     />
                     <TextField style={styles.textField}
+                        select
                         id="beer-color-field"
-                        label="Color of beer"
+                        label="Beer Color"
                         margin="normal"
                         variant="outlined"
+                        value="dark"
+                        // helperText="Please select beer color"
                     />
                 </form>
             </div>
