@@ -26,10 +26,10 @@ class App extends Component {
                     <Route path='/login' component={Login}/>
                     <Route path='/beer-list' component={BeerList} />
                     <Route path='/add-bar' component={AddPlace} />
-
+                    <Route path='/ranking' component={Rank} />
                     <BottomBar />
 
-                    <Route path='/ranking' component={Rank} />
+                   
                 </div>
             </Router>
         );
