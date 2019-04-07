@@ -20,16 +20,16 @@ class App extends Component {
             <Router>
                 <div>
                     <NavBar />
-                    <Route exact path='/' component={Main} />
-                    <Route path='/bar-list' component={BarList} />
-                    <Route path='/bar/:id' component={BarCard} />
-                    <Route path='/login' component={Login}/>
-                    <Route path='/beer-list' component={BeerList} />
-                    <Route path='/add-bar' component={AddPlace} />
-                    <Route path='/ranking' component={Rank} />
+                    <div style={{paddingTop: '63px', paddingBottom: '56px'}}>
+                        <Route exact path='/' component={Main} />
+                        <Route path='/bar-list' component={BarList} />
+                        <Route path='/bar/:id' component={BarCard} />
+                        <Route path='/login' component={Login}/>
+                        <Route path='/beer-list' component={BeerList} />
+                        <Route path='/ranking' component={Rank} />
+                        <Route path='/add-bar' component={AddPlace} />
+                    </div>
                     <BottomBar />
-
-                   
                 </div>
             </Router>
         );
