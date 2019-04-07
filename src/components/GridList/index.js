@@ -31,10 +31,12 @@ const styles = theme => ({
     overflow: 'hidden',
     // backgroundColor: theme.palette.background.paper,
     // backgroundColor: '#fed136',
+    marginBottom: 60,
+
   },
   gridList: {
     width: 800,
-    height: '80%'
+    // height: 1000
   },
   icon: {
     color: '#fed136',
@@ -42,8 +44,8 @@ const styles = theme => ({
   palettePrimary: {
     backgroundColor: '#212529',
     color: '#fed136',
-    border: '#fed136 1px solid',
-    // border: '#fff 1px solid',
+    // border: '#fed136 1px solid',
+    border: '#fff 1px solid',
     borderRadius: 3
   }
 });
@@ -137,17 +139,17 @@ class TitlebarGridList extends React.Component {
               <GridListTileBar
                 avatar={
                   <Avatar
-                  style={{ color: '#fed136' }}
+                    style={{ color: '#fed136' }}
                     aria-label="Bar"
                     className={classes.avatar}>
                     {/* {(barRank)} */}
                     R
                   </Avatar>
                 }
-                // title={
-                //   <span style={{ color: '#fed136' }}>{theBar.name}</span>}
-                // subheader={
-                //   <span style={{ color: '#fed136' }}>{theBar.address}, {theBar.city}, <a href={theBar.website}>{theBar.website}</a></span>}
+              // title={
+              //   <span style={{ color: '#fed136' }}>{theBar.name}</span>}
+              // subheader={
+              //   <span style={{ color: '#fed136' }}>{theBar.address}, {theBar.city}, <a href={theBar.website}>{theBar.website}</a></span>}
               />
 
             </GridListTile>
