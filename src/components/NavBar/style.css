@@ -22,3 +22,7 @@ ListItem {
 .link {
     text-decoration: none;
 }
+.navbar-button{
+    text-decoration: none;
+    color: #fed136;
+}

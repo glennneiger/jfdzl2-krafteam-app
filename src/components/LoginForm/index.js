@@ -83,9 +83,9 @@ class Form extends Component {
                         <div className="buttonsContainer">
                             <Button variant="outlined" color="primary" className={classes.button}>
                                 LOG IN
-                        </Button>
-                            <Link to='/register'>
-                                <Button variant="outlined" color="primary" className={classes.button}>
+                        </Button >
+                            <Link className="buttonStyle" to='/register'>
+                                <Button  variant="outlined" color="primary" className={classes.button}>
                                     SIGN UP
                         </Button>
                             </Link>

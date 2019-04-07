@@ -47,7 +47,12 @@
         margin: 5%;
     }
 
-    .MuiButton-outlinedPrimary-104 {
-        color: #fed136 !important;
+    .buttonStyle {
+        color: #fed136;
         border: 1px solid #fed136 !important;
+        border-radius: 8%;
+        text-decoration: none;
+    }
+    .buttonLabel{
+        color: #fed136;
     }
