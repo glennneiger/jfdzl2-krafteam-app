@@ -39,20 +39,13 @@ class SearchForm extends Component {
                     />
                     <TextField style={styles.textField}
                         id="beer-type-field"
-                        label="Type of beer"
+                        label="Beer type"
                         margin="normal"
                         variant="outlined"
                     />
                     <TextField style={styles.textField}
-                        id="beer-taste-field"
-                        label="Beer taste"
-                        margin="normal"
-                        variant="outlined"
-                    />
-                    <TextField style={styles.textField}
-                        select
                         id="beer-color-field"
-                        label="Beer Color"
+                        label="Beer color"
                         margin="normal"
                         variant="outlined"
                     />

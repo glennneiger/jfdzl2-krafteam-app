@@ -1,10 +1,10 @@
-import { createStore, combineReducers } from 'react-redux'
+import { createStore, combineReducers } from 'redux'
+import bars from './reducers/bars'
 
 let store = createStore(combineReducers({
-    bars: [1,2,3]
+    bars
 }),
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 export default store;

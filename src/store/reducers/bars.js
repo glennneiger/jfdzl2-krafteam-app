@@ -1,6 +1,8 @@
 import { SET_BARS } from '../constants';
 
-const bars = (state = ['bar1', 'bar2'], action) => {
+const initialState = [];
+
+const bars = (state = initialState , action) => {
     switch(action.type) {
         case SET_BARS:
             return [
