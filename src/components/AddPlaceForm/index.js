@@ -52,6 +52,15 @@ class AddPlaceForm extends Component {
     }
 
     handleSubmit = event => {
+        if (this.state.name) {
+            const bar = this.state;
+            db.ref('/places').push(bar, function(error){
+                console.log(error)
+                console.log('new place added');
+            });
+        } else {
+            console.log('fill name form');
+        }
         // fetch('https://jfdzl2-krafteam.firebaseio.com/places.json', {
         //     method: 'POST',
         //     body: JSON.stringify(this.state)
