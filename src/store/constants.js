@@ -1,0 +1,1 @@
+export const SET_BARS = 'SET_BARS'

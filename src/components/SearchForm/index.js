@@ -20,11 +20,17 @@ class SearchForm extends Component {
 
     }
 
+    handleSubmit = event => {
+        if (event.which === 13) {
+            alert('press enter' + event.target.value);
+        }
+    }
+
     render() {
         return (
             <div className="search-container">
                 <h2>Search</h2>
-                <form className="search-form" style={styles.searchForm}>
+                <form onKeyPress={this.handleSubmit} className="search-form" style={styles.searchForm}>
                     <TextField style={styles.textField}
                         id="beer-name-field"
                         label="Beer name"
@@ -49,8 +55,6 @@ class SearchForm extends Component {
                         label="Beer Color"
                         margin="normal"
                         variant="outlined"
-                        value="dark"
-                        // helperText="Please select beer color"
                     />
                 </form>
             </div>

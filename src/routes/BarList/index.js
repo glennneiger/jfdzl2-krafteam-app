@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import GridList from '../../components/GridList'
 class BarList extends Component {
@@ -11,4 +12,8 @@ class BarList extends Component {
     }
 }
 
-export default BarList;
+const mapStateToProps = state => ({
+    bars: state.bars
+})
+
+export default connect(BarList);
