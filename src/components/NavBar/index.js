@@ -28,8 +28,8 @@ class NavBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <AppBar position="static">
-          <Toolbar className="tool-bar">
+        <AppBar position="static" style={{position: 'fixed'}}>
+          <Toolbar className="tool-bar" >
             <Link to='/'>
               <img src={yellowLogo} className="bar-logo" alt="" />
             </Link>
@@ -45,11 +45,6 @@ class NavBar extends Component {
         <Drawer anchor="right" open={this.state.open} onClose={this.toggleDrawer}>
           <img src={blackLogo} className="menu-logo" alt="" />
           <List>
-            <Link className="link" to='/' onClick={this.toggleDrawer}>
-              <ListItem button>
-                <ListItemText primary='Beer List' />
-              </ListItem>
-            </Link>
             <Link className="link" to='/beer-list' onClick={this.toggleDrawer}>
               <ListItem>
                 Beer List
@@ -65,7 +60,7 @@ class NavBar extends Component {
                 <ListItemText primary='Map' />
               </ListItem>
             </Link>
-            <Link className="link" to='/' onClick={this.toggleDrawer}>
+            <Link className="link" to='/ranking' onClick={this.toggleDrawer}>
               <ListItem button>
                 <ListItemText primary='Rank' />
               </ListItem>
@@ -73,6 +68,11 @@ class NavBar extends Component {
             <Link className="link" to='/login' onClick={this.toggleDrawer}>
               <ListItem button>
                 <ListItemText primary='Login' />
+              </ListItem>
+            </Link>
+            <Link className="link" to='/add-bar' onClick={this.toggleDrawer}>
+              <ListItem button>
+                <ListItemText primary='Add bar' />
               </ListItem>
             </Link>
           </List>

@@ -15,12 +15,22 @@ const styles = {
 
 
 class SearchForm extends Component {
-    render() {
 
+    state = {
+
+    }
+
+    handleSubmit = event => {
+        if (event.which === 13) {
+            alert('press enter' + event.target.value);
+        }
+    }
+
+    render() {
         return (
             <div className="search-container">
                 <h2>Search</h2>
-                <form className="search-form" style={styles.searchForm}>
+                <form onKeyPress={this.handleSubmit} className="search-form" style={styles.searchForm}>
                     <TextField style={styles.textField}
                         id="beer-name-field"
                         label="Beer name"
@@ -29,19 +39,13 @@ class SearchForm extends Component {
                     />
                     <TextField style={styles.textField}
                         id="beer-type-field"
-                        label="Type of beer"
-                        margin="normal"
-                        variant="outlined"
-                    />
-                    <TextField style={styles.textField}
-                        id="beer-taste-field"
-                        label="Beer taste"
+                        label="Beer type"
                         margin="normal"
                         variant="outlined"
                     />
                     <TextField style={styles.textField}
                         id="beer-color-field"
-                        label="Color of beer"
+                        label="Beer color"
                         margin="normal"
                         variant="outlined"
                     />

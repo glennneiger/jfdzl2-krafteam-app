@@ -1,4 +1,9 @@
-.container-ranking {
-    width: 100%;
-    height: 300px;
+
+.container-charts{
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    display: flexbox;
+    align-content: center;
+    justify-content: space-around;
 }
