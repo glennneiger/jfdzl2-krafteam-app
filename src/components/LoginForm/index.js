@@ -27,7 +27,7 @@ class Form extends Component {
         return (
             <div>
                 <div className="formContainer">
-                <header>
+                <header className="loginHeader">
                     <h1>Beer Seek</h1>
                     <h2>Log In</h2>
                 </header>
