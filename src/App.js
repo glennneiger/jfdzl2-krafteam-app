@@ -30,8 +30,6 @@ class App extends Component {
                     <Route path='/add-bar' component={AddPlace} />
                     <Route path='/ranking' component={Rank} />
                     <BottomBar />
-
-                   
                 </div>
             </Router>
         );

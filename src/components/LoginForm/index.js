@@ -40,6 +40,10 @@ class Form extends Component {
         return (
             <div>
                 <div className="formContainer">
+                <header className="loginHeader">
+                    <h1>Beer Seek</h1>
+                    <h2>Log In</h2>
+                </header>
                     <div className="textFieldContainer">
                         <div>
                             <div >
@@ -81,12 +85,11 @@ class Form extends Component {
                             </div>
                         </div>
                         <div className="buttonsContainer">
-                            <Button variant="outlined" color="primary" style={{color: '#fed136'}} className={classes.button}>
-                                LOG IN
-                        </Button >
-                            <Link className="buttonStyle" to='/register'>
-                                <Button className="buttonLabel" variant="outlined" color="primary" style={{color: '#fed136'}} className={classes.button}>
-                                    SIGN UP
+                        <Button variant="outlined" color="primary" className={classes.button}>
+                            LOG IN
+                        </Button>
+                        <Button variant="outlined" color="primary" className={classes.button}>
+                            SIGN UP
                         </Button>
                             </Link>
                         </div>
