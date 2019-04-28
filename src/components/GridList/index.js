@@ -7,8 +7,6 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
-import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Avatar from '@material-ui/core/Avatar';
 
 
@@ -80,11 +78,6 @@ class TitlebarGridList extends React.Component {
             style={{ color: '#fed136' }}
             actionIcon={
               <IconButton className={classes.icon}>
-                {/* <StarIcon />
-                <StarIcon />
-                <StarBorderIcon />
-                <StarBorderIcon />
-                <StarBorderIcon /> */}
                 <Avatar
                   aria-label="Bar"
                   className={classes.avatar}>
