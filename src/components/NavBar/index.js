@@ -28,7 +28,7 @@ class NavBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <AppBar position="static" style={{position: 'fixed'}}>
+        <AppBar position="static" style={{position: 'fixed', top: 0}}>
           <Toolbar className="tool-bar" >
             <Link to='/'>
               <img src={yellowLogo} className="bar-logo" alt="" />
