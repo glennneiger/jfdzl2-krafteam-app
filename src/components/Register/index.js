@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../firebase'
 
-
 import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
@@ -23,7 +22,7 @@ const styles = {
     }
 };
 
-class Form extends Component {
+class Register extends Component {
     state = {
         email: '',
         password: ''
@@ -37,13 +36,12 @@ class Form extends Component {
     render() {
         const { classes } = this.props;
 
+
+       
+
         return (
             <div>
                 <div className="formContainer">
-                <header className="loginHeader">
-                    <h1>Beer Seek</h1>
-                    <h2>Log In</h2>
-                </header>
                     <div className="textFieldContainer">
                         <div>
                             <div >
@@ -85,13 +83,14 @@ class Form extends Component {
                             </div>
                         </div>
                         <div className="buttonsContainer">
-                        <Button variant="outlined" color="primary" className={classes.button}>
-                            LOG IN
-                        </Button>
-                        <Button variant="outlined" color="primary" className={classes.button}>
-                            SIGN UP
-                        </Button>
+                            <Link to='/login'>
+                                <Button variant="outlined" color="primary" className={classes.button}>
+                                    LOG IN
+                                </Button>
                             </Link>
+                            <Button variant="outlined" color="primary" className={classes.button}>
+                                SIGN UP test
+                        </Button>
                         </div>
                     </div>
                 </div>
@@ -100,6 +99,4 @@ class Form extends Component {
         )
     }
 }
-
-
-export default withStyles(styles)(Form);
+export default withStyles(styles)(Register)
