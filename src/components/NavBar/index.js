@@ -36,7 +36,12 @@ class NavBar extends Component {
             <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>
               KrafTeam
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Link className="navbar-button" to='/login'>
+            <Button  color="inherit">Login</Button>
+            </Link>
+            <Link className="navbar-button" to='/register'>
+            <Button  color="inherit">Sign up</Button>
+            </Link>
             <IconButton color="inherit" aria-label="Menu" onClick={this.toggleDrawer} className="menuButton">
               <MenuIcon />
             </IconButton>
