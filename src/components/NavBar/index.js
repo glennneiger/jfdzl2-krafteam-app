@@ -47,11 +47,11 @@ class NavBar extends Component {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Drawer anchor="right" open={this.state.open} onClose={this.toggleDrawer}>
+        <Drawer anchor="right" open={this.state.open} onClose={this.toggleDrawer} >
           <img src={blackLogo} className="menu-logo" alt="" />
           <List>
             <Link className="link" to='/beer-list' onClick={this.toggleDrawer}>
-              <ListItem>
+              <ListItem style={{width: '200px'}}>
                 Beer List
               </ListItem>
             </Link>
@@ -68,11 +68,6 @@ class NavBar extends Component {
             <Link className="link" to='/ranking' onClick={this.toggleDrawer}>
               <ListItem button>
                 <ListItemText primary='Rank' />
-              </ListItem>
-            </Link>
-            <Link className="link" to='/login' onClick={this.toggleDrawer}>
-              <ListItem button>
-                <ListItemText primary='Login' />
               </ListItem>
             </Link>
             <Link className="link" to='/add-bar' onClick={this.toggleDrawer}>
