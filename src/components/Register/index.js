@@ -32,6 +32,22 @@ class Register extends Component {
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
+    handleClick = (event) =>{
+        auth
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(response => {
+            console.log('Response', response)
+            this.props.setIsAuthorized(true)
+            this.props.history.push('./')
+        })
+        .catch( error => {
+            console.error(`Error: ${error.code} ${error.message}`)
+        })
+        console.log(this.state)
+        this.setState({email:'', password:''})
+
+        event.preventDefault()
+    }
 
     render() {
         const { classes } = this.props;
@@ -84,7 +100,7 @@ class Register extends Component {
                         </div>
                         <div className="buttonsContainer">
                             
-                            <Button variant="outlined" color="primary" className={classes.button}>
+                            <Button variant="outlined" color="primary" className={classes.button} onClick={this.handleClick}>
                                 SIGN UP
                         </Button>
                         </div>
