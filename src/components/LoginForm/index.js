@@ -91,7 +91,6 @@ class Form extends Component {
                         <Button variant="outlined" color="primary" className={classes.button}>
                             SIGN UP
                         </Button>
-                            </Link>
                         </div>
                     </div>
                 </div>
