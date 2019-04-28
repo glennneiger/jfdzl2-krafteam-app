@@ -19,7 +19,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarRatingComponent from 'react-star-rating-component';
 
 import { db } from '../../firebase';
-import { barListData } from '../../components/GridList'
+// import { barListData } from '../../components/GridList'
 
 const styles = theme => ({
     card: {
@@ -41,7 +41,7 @@ const styles = theme => ({
         }),
     },
     expandOpen: {
-        transform: 'rotate(360deg)',
+        transform: 'rotate(180deg)',
     },
     avatar: {
         color: '#212529',
@@ -59,7 +59,7 @@ const styles = theme => ({
 });
 
 class BarCard extends React.Component {
-    state = { expanded: true, theBar: null, rating: 0 };
+    state = { expanded: false, theBar: null, rating: 0 };
     // state = { expanded: true };
 
     handleExpandClick = () => {
@@ -232,7 +232,7 @@ class BarCard extends React.Component {
                                 <div className="rating-stars">
                                     Obsługa :
                                     <StarRatingComponent
-                                        renderStarIcon={() => <span>#</span>}
+                                        // renderStarIcon={() => <span>#</span>}
                                         // value={rating2}
                                         name="rate2"
                                         starCount={5}
@@ -243,7 +243,7 @@ class BarCard extends React.Component {
                                 <div className="rating-stars">
                                     Ceny  :
                                     <StarRatingComponent
-                                        renderStarIcon={() => <span>@</span>}
+                                        // renderStarIcon={() => <span>@</span>}
                                         // value={rating3}
                                         name="rate3"
                                         starCount={5}
