@@ -56,6 +56,8 @@ class TitlebarGridList extends React.Component {
 
   getRating = (tile) => {
     // tile.rating1Sum/tile.rating1Count  
+    // console.log(tile)
+    return tile.rating3 ? tile.rating3 : 0;
   }
 
   renderPlaces = () => {
