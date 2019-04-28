@@ -83,9 +83,9 @@ class Register extends Component {
                             </div>
                         </div>
                         <div className="buttonsContainer">
-                           
+                            
                             <Button variant="outlined" color="primary" className={classes.button}>
-                                SIGN UP 
+                                SIGN UP
                         </Button>
                         </div>
                     </div>
